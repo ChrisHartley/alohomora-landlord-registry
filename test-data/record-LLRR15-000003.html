@@ -1,0 +1,2218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir=""><head id="ctl00_Head1"><link rel="stylesheet" type="text/css" href="../App_Themes/Default/_progressbar.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/breadcrumb.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/Calendar.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/custom.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/font.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/form.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/grid.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/layout.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/navigation.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/permitdetail.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/progressbar.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/Default/splitbutton.css" /><title>
+	
+    Accela Citizen Access
+    
+</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/Calendar.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/custom.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/form.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/grid.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/layout.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/navigation.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/permitdetail.css" /><link rel="stylesheet" type="text/css" href="../App_Themes/en-US/progressbar.css" /><link href="/CitizenAccess/Handlers/CustomizedCssStyle.ashx?agencyCode=INDY" rel="stylesheet" style="text/css" id="ctl00_CustomerCssStyle" /><script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId="></script><script type="text/javascript">
+    var firstErrorMsgId;
+
+    function isSafari(){
+        var ua = window.navigator.userAgent;
+        return ua.indexOf("Safari")&gt;-1;
+    }
+
+    var original=0;
+    function iframeAutoFit()
+    {
+        try
+        {
+            if(window!=parent)
+            {
+                var ifrm = getParentDocument().getElementById("ACAFrame");
+                if(ifrm != null &amp;&amp; ifrm.contentWindow==window)
+                {
+                    var h1 = 0, h2 = 0;
+
+                    if(document.documentElement&amp;&amp;document.documentElement.scrollHeight)
+                    {
+                        h1=ifrm.contentWindow.document.documentElement.scrollHeight;
+                    }
+                    if (isSafari()) {
+                        h1=ifrm.contentWindow.document.body.scrollHeight;
+                    }
+                
+                    var h=$(ifrm.contentWindow.document.body).innerHeight();
+                
+                    var temp = h1-60 - h;
+                    var chk = true;
+                    if (temp&gt; 0 &amp;&amp; temp&lt;200) {
+                        chk = false;
+                    }
+
+                    var popupHeight = 0;
+                    var popupDialog = $("#dvACADialogLayer");
+                    if ($.exists(popupDialog)) {
+                        popupHeight = popupDialog[0].clientHeight;
+                        if (h &lt; popupHeight) {
+                            h = popupHeight;
+                        }
+                    }
+
+                    if(original != h || !chk){ 
+                        if(isFireFox() == false)
+                        {
+                            if (chk) {
+                                h1 = parseInt(h)+60;
+                            }
+                        
+                            ifrm.style.height = ifrm.parentNode.style.height = h1 +"px";
+                        }
+                        else
+                        {
+                            if (chk) {
+                                if ($.exists(popupDialog)) {
+                                    h1 = parseInt(h) + 60;
+                                } else {
+                                    h1 = ifrm.contentDocument.body.scrollHeight;
+                                    h1 = parseInt(h1) + 60;
+                                }
+                            }
+                            
+                            ifrm.height = h1;
+                        }
+
+                        original = h;
+                    } 
+                }
+            }
+        }
+        catch (ex){}
+    }
+
+    function ShowLoading() {
+        var processLoading = new ProcessLoading();
+        processLoading.showLoading();
+    }
+
+    function HideLoading() {
+        var processLoading = new ProcessLoading();
+        processLoading.hideLoading();
+    }
+
+</script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset&gt;div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title&gt;span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+
+<body>
+    <script src="/CitizenAccess/Scripts/jquery.js" type="text/javascript"></script>
+    <script src="/CitizenAccess/Scripts/jquery.corner.js" type="text/javascript"></script>
+    <script src="/CitizenAccess/Scripts/GlobalConst.aspx" type="text/javascript"></script>
+    <script src="/CitizenAccess/Scripts/global.js" type="text/javascript"></script>
+    <script src="/CitizenAccess/Scripts/ProcessLoading.js" type="text/javascript"></script>
+    <script src="/CitizenAccess/Scripts/GlobalSearch.js" type="text/javascript"></script>
+    <script src="/CitizenAccess/Scripts/SessionTimeout.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.global.isRTL = IsTrue('False');
+
+        //fix the issue that the confirm/alert box should also follows the current culture.
+        if ($.global.isRTL) {
+            document.dir = "rtl";
+        } else {
+            document.dir = "";
+        }
+
+        $.global.isAdmin = IsTrue('False');
+        var isWelcomePage = IsTrue('False');
+        var isLoginPage = IsTrue('False');
+        var isAnonymous = IsTrue('True');
+        if (GLOBAL_ACCESSIBILITY_ENABLED &amp;&amp; !((isWelcomePage || isLoginPage) &amp;&amp; isAnonymous) &amp;&amp; !$.global.isAdmin) {
+            var opts = {
+                IsAnonymous: isAnonymous,
+                TimeoutTime: 60,
+                WarningTime: 5,
+                Title: 'Warning',
+                Message: 'Your session will time out in {0} minute(s). Would you like to continue?',
+                MsgHelp: 'Please press the Tab key to move the focus to the OK or Cancel button.',
+                BtnOK: 'OK',
+                BtnCancel: 'Cancel',
+                UrlWelcome: '/CitizenAccess/Welcome.aspx',
+                UrlLogin: '/CitizenAccess/Login.aspx',
+                UrlRefresh: '/CitizenAccess/Handlers/RefreshSessionHandler.ashx'
+            };
+            $("body").SessionTimeoutTimer(opts);
+        }
+    </script>
+    
+    <div class="" id="divctl00_hlSkipToolBar" style="WIDTH: 0px; HEIGHT: 0px;"><a class="NotShowLoading" title="Skip Module Navigation" onclick="skipToMainContent();" tabindex="-1" href="#FirstAnchorInACAMainContent" accesskey="1" id="ctl00_hlSkipToolBar"><img width="0px" height="0px" style="border-width:0px;" src="/CitizenAccess/WebResource.axd?d=jDubtgPSeqDVZQLgix3B3GoCtTVvl2S0OW4bH5xr8Rfb5UbBM7x79cAJzXieM3GaNu8NntCtX_Ppj2KnXjdidzTKinAFCciph3rnOrYqzAAXFLcQoWOsvMCIZiIhlLZeaLkK-p7bF1ij9DIBc0Kn1hs06vEE7Egao_HBVfIhBsk1&amp;t=635391449560000000" alt="Skip Module Navigation" /></a></div>
+    <form id="aspnetForm" onsubmit="javascript:return WebForm_OnSubmit();" action="./CapDetail.aspx?Module=Licenses&amp;TabName=Licenses&amp;capID1=15CAP&amp;capID2=00000&amp;capID3=00AMC&amp;agencyCode=INDY&amp;IsToShowInspection=" method="post" name="aspnetForm">
+<div>
+<input type="hidden" value="55c0002f41c14474953c22d409f256d2" id="CSRF_TOKEN" name="CSRF_TOKEN" />
+<input type="hidden" value="" id="__EVENTTARGET" name="__EVENTTARGET" />
+<input type="hidden" value="" id="__EVENTARGUMENT" name="__EVENTARGUMENT" />
+<input type="hidden" value="/wEPDwUKMTY4NDYyNDQxNA8WCh4bUFJJTlRfUEVSTUlUX1NVTU1BUllfUkVQT1JUBQQyMTAwHhREaXNwbGF5UmVjZWlwdFJlcG9ydGgeDlJFQ0VJUFRfTlVNQkVSZB4SUmVuZXdhbEJ0bkxhYmVsS2V5ZR4TUFJJTlRfUEVSTUlUX1JFUE9SVAUBMBYCZg9kFgYCAQ8PFgQeCUFjY2Vzc0tleQUBMB4HVmlzaWJsZWhkZAICDw8WBB8FBQExHghUYWJJbmRleAH//2RkAgMPZBYGAgEPZBYGAgEPZBYGZg8WAh4EaHJlZmRkAgYPD2QWAh4Fc3R5bGUFDWRpc3BsYXk6bm9uZTtkAgsPZBYCAgUPFgIfBmhkAgIPFgIfBmcWBmYPFgIfCAUZL0NpdGl6ZW5BY2Nlc3MvTG9naW4uYXNweGQCAg8PZBYCHwkFDWRpc3BsYXk6bm9uZTtkAgQPFgIfCAUuL0NpdGl6ZW5BY2Nlc3MvQWNjb3VudC9SZWdpc3RlckRpc2NsYWltZXIuYXNweGQCBA8PFgIfBmhkZAICD2QWAmYPZBYuAgUPDxYEHglJc0VuY29kZWRnHgRUZXh0BQ1MTFJSMTUtMDAwMDAzZGQCBw8WAh8GaGQCCQ8PFgIfBmhkZAILDw8WAh8GaGRkAg0PZBYCZg9kFgJmD2QWDmYPEA8WBh4IQ3NzQ2xhc3MFXUFDQV9Db2xsZWN0aW9uX1Jkb0J1dHRvbiBBQ0FfQ29sbGVjdGlvbl9SZG9CdXR0b25fRm9udFNpemUgYWNhX2NoZWNrYm94IGFjYV9jaGVja2JveF9mb250c2l6ZR4HQ2hlY2tlZGceBF8hU0ICAhYCHgdvbmNsaWNrBVNyZG9Db2xsZWN0aW9uQ2xpY2tfY3RsMDBfUGxhY2VIb2xkZXJNYWluX2FkZEZvckRldGFpbFBhZ2VfcmRvRXhpc3RDb2xsZWN0aW9uKHRoaXMpOxYCHgV0aXRsZQUWQWRkIHRvIEV4aXN0aW5nIEZvbGRlcmRkAgIPEA9kFgIeCG9uY2hhbmdlBVBkZGxNeUNvbGxlY3Rpb25DaGFuZ2VkX2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9hZGRGb3JEZXRhaWxQYWdlX2RkbE15Q29sbGVjdGlvbigpOxAVAgotLVNlbGVjdC0tFEZlZXMgRHVlIC0gQWxsIENhc2VzFQIABDE4ODYUKwMCZ2cWAWZkAgMPEA8WBh8MBV1BQ0FfQ29sbGVjdGlvbl9SZG9CdXR0b24gQUNBX0NvbGxlY3Rpb25fUmRvQnV0dG9uX0ZvbnRTaXplIGFjYV9jaGVja2JveCBhY2FfY2hlY2tib3hfZm9udHNpemUfDWgfDgICFgIfDwVRcmRvQ29sbGVjdGlvbkNsaWNrX2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9hZGRGb3JEZXRhaWxQYWdlX3Jkb05ld0NvbGxlY3Rpb24odGhpcyk7FgIfEAUTQ3JlYXRlIGEgTmV3IEZvbGRlcmRkAgYPDxYEHwtlHgdFbmFibGVkaBYGHhBvbnByb3BlcnR5Y2hhbmdlBUdjb2xsZWN0aW9uTmFtZUNoYW5nZWRfY3RsMDBfUGxhY2VIb2xkZXJNYWluX2FkZEZvckRldGFpbFBhZ2VfdHh0TmFtZSgpOx4Hb25pbnB1dAVHY29sbGVjdGlvbk5hbWVDaGFuZ2VkX2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9hZGRGb3JEZXRhaWxQYWdlX3R4dE5hbWUoKTseBm9uYmx1cgVDQWRqdXN0Q29sbGVjdGlvbk5hbWVTdHlsZV9jdGwwMF9QbGFjZUhvbGRlck1haW5fYWRkRm9yRGV0YWlsUGFnZSgpO2QCBw8PFgQfC2UfEmhkZAIIDw9kFgIfDwVHcmV0dXJuIENsb3NlQWRkRm9ybV9jdGwwMF9QbGFjZUhvbGRlck1haW5fYWRkRm9yRGV0YWlsUGFnZV9idG5BZGQodGhpcylkAgkPD2QWBB8PBVBFeGl0QWRkRm9ybV9jdGwwMF9QbGFjZUhvbGRlck1haW5fYWRkRm9yRGV0YWlsUGFnZV9idG5DYW5jZWwodGhpcyk7cmV0dXJuIGZhbHNlOx4Jb25rZXlkb3duBRZmb2N1c0N1cnJlbnRPYmooZXZlbnQpZAIPDw8WBB8KZx8LBRVMYW5kbG9yZCBSZWdpc3RyYXRpb25kZAIRDxYCHwZoZAITDxYCHwZnFgICAw8PFgQfCmcfCwUPQWJvdXQgdG8gRXhwaXJlZGQCFQ8WAh8GZxYCAgMPDxYEHwpnHwsFCjAxLzA0LzIwMTZkZAIZDw8WBB4bR2VuZXJhbENvbmRpdGlvbnNEYXRhU291cmNlMpcDAAEAAAD/////AQAAAAAAAAAMAgAAAElBY2NlbGEuQUNBLldlYiwgVmVyc2lvbj03LjMuMi4xNzc2MSwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBAEAAACYAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbQWNjZWxhLkFDQS5XZWIuQ29tbW9uLkNvbmRpdGlvblZpZXdNb2RlbCwgQWNjZWxhLkFDQS5XZWIsIFZlcnNpb249Ny4zLjIuMTc3NjEsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbF1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAqQWNjZWxhLkFDQS5XZWIuQ29tbW9uLkNvbmRpdGlvblZpZXdNb2RlbFtdAgAAAAgICQMAAAAAAAAAAAAAAAcDAAAAAAEAAAAAAAAABChBY2NlbGEuQUNBLldlYi5Db21tb24uQ29uZGl0aW9uVmlld01vZGVsAgAAAAseHkNvbmRpdGlvbnNPZkFwcHJvdmFsRGF0YVNvdXJjZTKXAwABAAAA/////wEAAAAAAAAADAIAAABJQWNjZWxhLkFDQS5XZWIsIFZlcnNpb249Ny4zLjIuMTc3NjEsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAQBAAAAmAFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0FjY2VsYS5BQ0EuV2ViLkNvbW1vbi5Db25kaXRpb25WaWV3TW9kZWwsIEFjY2VsYS5BQ0EuV2ViLCBWZXJzaW9uPTcuMy4yLjE3NzYxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGxdXQMAAAAGX2l0ZW1zBV9zaXplCF92ZXJzaW9uBAAAKkFjY2VsYS5BQ0EuV2ViLkNvbW1vbi5Db25kaXRpb25WaWV3TW9kZWxbXQIAAAAICAkDAAAAAAAAAAAAAAAHAwAAAAABAAAAAAAAAAQoQWNjZWxhLkFDQS5XZWIuQ29tbW9uLkNvbmRpdGlvblZpZXdNb2RlbAIAAAALZBYMZg9kFgICAQ8WAh8QBQdMb2NrZWQgZAIBD2QWAgIBDxYCHxAFB09uIEhvbGRkAgIPZBYCAgEPFgIfEAUGTm90aWNlZAIDD2QWAgIBDxYCHxAFCFJlcXVpcmVkZAIED2QWBAIBD2QWAgIBDxYOHgtjb2xsYXBzaWJsZQUEVHJ1ZR4JY29sbGFwc2VkBQR0cnVlHg1zZWN0aW9uQm9keUlEBRRkaXZHZW5lcmFsQ29uZGl0aW9ucx4MdGl0bGVMYWJlbElEBUtjdGwwMF9QbGFjZUhvbGRlck1haW5fY2FwQ29uZGl0aW9uc19zaEdlbmVyYWxDb25kaXRpb25zSW5mb19sYmxTZWN0aW9uVGl0bGUeDWluc3RydWN0aW9uSUQFVWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9jYXBDb25kaXRpb25zX3NoR2VuZXJhbENvbmRpdGlvbnNJbmZvX2xibFNlY3Rpb25UaXRsZV9zdWJfbGFiZWweBmxpbmtJRAVPY3RsMDBfUGxhY2VIb2xkZXJNYWluX2NhcENvbmRpdGlvbnNfc2hHZW5lcmFsQ29uZGl0aW9uc0luZm9fbG5rQ29sbGFwc2VPckV4cGFuZB4HaW1hZ2VJRAVPY3RsMDBfUGxhY2VIb2xkZXJNYWluX2NhcENvbmRpdGlvbnNfc2hHZW5lcmFsQ29uZGl0aW9uc0luZm9faW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYEAgEPFgQfDwWlAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9jYXBDb25kaXRpb25zX3NoR2VuZXJhbENvbmRpdGlvbnNJbmZvJykudG9nZ2xlKCk7IGlmIChjb2xsYXBzZWQpIHZvaWQoMCk7IGVsc2Ugdm9pZCgwKTsgfR8QBRNDb2xsYXBzZSBDb25kaXRpb25zFgICAQ8WDB4DYWx0BQhDb2xsYXBzZR4Dc3JjBUQvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2V4cGFuZGVkLmdpZh4RQ29sbGFwc2VkSW1hZ2VVUkwFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh4QRXhwYW5kZWRJbWFnZVVSTAVEL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9leHBhbmRlZC5naWYeEENvbGxhcHNlZEFsdFRleHQFCENvbGxhcHNlHg9FeHBhbmRlZEFsdFRleHQFBkV4cGFuZGQCCA8PFgYfC2UfDAUIQUNBX0hpZGUfDgICZGQCAw8WAh8GaGQCAw9kFgJmD2QWAgIBDzwrABECARAWABYAFgAMFCsAAGQCBQ9kFgICAQ9kFgJmD2QWBAIBD2QWAgIBDxYOHxkFBFRydWUfGgUEdHJ1ZR8bBTtjdGwwMF9QbGFjZUhvbGRlck1haW5fY2FwQ29uZGl0aW9uc19kaXZDb25kaXRpb25zT2ZBcHByb3ZhbB8cBUljdGwwMF9QbGFjZUhvbGRlck1haW5fY2FwQ29uZGl0aW9uc19zaENvbmRpdGlvbk9mQXBwcm92YWxfbGJsU2VjdGlvblRpdGxlHx0FU2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9jYXBDb25kaXRpb25zX3NoQ29uZGl0aW9uT2ZBcHByb3ZhbF9sYmxTZWN0aW9uVGl0bGVfc3ViX2xhYmVsHx4FTWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9jYXBDb25kaXRpb25zX3NoQ29uZGl0aW9uT2ZBcHByb3ZhbF9sbmtDb2xsYXBzZU9yRXhwYW5kHx8FTWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9jYXBDb25kaXRpb25zX3NoQ29uZGl0aW9uT2ZBcHByb3ZhbF9pbWdDb2xsYXBzZU9yRXhwYW5kFgQCAQ9kFgYCAQ8WBB8PBaMBaWYgKHRydWUpIHsgdmFyIGNvbGxhcHNlZCA9IG5ldyBTZWN0aW9uSGVhZGVyTWFuYWdlcignY3RsMDBfUGxhY2VIb2xkZXJNYWluX2NhcENvbmRpdGlvbnNfc2hDb25kaXRpb25PZkFwcHJvdmFsJykudG9nZ2xlKCk7IGlmIChjb2xsYXBzZWQpIHZvaWQoMCk7IGVsc2Ugdm9pZCgwKTsgfR8QBR9Db2xsYXBzZSBDb25kaXRpb25zIG9mIEFwcHJvdmFsFgICAQ8WDB8gBQhDb2xsYXBzZR8hBUQvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2V4cGFuZGVkLmdpZh8iBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIwVEL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9leHBhbmRlZC5naWYfJAUIQ29sbGFwc2UfJQUGRXhwYW5kZAIEDxYCHwZnFgQCAQ8PFgQeB1Rvb2xUaXAFOFBsZWFzZSBlbnRlciBrZXkgd29yZHMgdG8gZmlsdGVyIGNvbmRpdGlvbnMgb2YgYXBwcm92YWwuHwsFCVNlYXJjaC4uLhYIHxYFSGN0bDAwX1BsYWNlSG9sZGVyTWFpbl9jYXBDb25kaXRpb25zX3NoQ29uZGl0aW9uT2ZBcHByb3ZhbF9LZXlkb3duKGV2ZW50KR8PBUljdGwwMF9QbGFjZUhvbGRlck1haW5fY2FwQ29uZGl0aW9uc19zaENvbmRpdGlvbk9mQXBwcm92YWxfQ2xlYW5UZXh0KHRoaXMpHxUFSmN0bDAwX1BsYWNlSG9sZGVyTWFpbl9jYXBDb25kaXRpb25zX3NoQ29uZGl0aW9uT2ZBcHByb3ZhbF9TZWFyY2hCbHVyKHRoaXMpHgVjbGFzcwUdZ3Nfc2VhcmNoX2JveCB3YXRlcm1hcmsgSU5QVVRkAgcPDxYEHghJbWFnZVVybAU0L0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9nc2VhcmNoLnBuZx4NQWx0ZXJuYXRlVGV4dAUJU2VhcmNoLi4uZGQCCA8PFgYfC2UfDAUIQUNBX0hpZGUfDgICZGQCAw8WAh8GaGQCAw9kFgQCAQ8WAh8GZxYCAgEPFgIfBmcWAgIBDw8WBB4LQ29tbWFuZE5hbWUFB0hpZGVNZXQfC2VkZAIFDzwrABEDAA8WBB4OU2hvd0V4cG9ydExpbmtnHg5FeHBvcnRGaWxlTmFtZQUYQ29uZGl0aW9uc09mQXBwcm92YWxMaXN0ZAEQFgAWABYADBQrAABkAhsPZBYGAgEPZBYCAgEPFg4fGQUEVHJ1ZR8aBQR0cnVlHxsFE2RpdldvcmtMb2NhdGlvbkluZm8fHAU0Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoV29ya0xvY2F0aW9uX2xibFNlY3Rpb25UaXRsZR8dBT5jdGwwMF9QbGFjZUhvbGRlck1haW5fc2hXb3JrTG9jYXRpb25fbGJsU2VjdGlvblRpdGxlX3N1Yl9sYWJlbB8eBThjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hXb3JrTG9jYXRpb25fbG5rQ29sbGFwc2VPckV4cGFuZB8fBThjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hXb3JrTG9jYXRpb25faW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWOAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFdvcmtMb2NhdGlvbicpLnRvZ2dsZSgpOyBpZiAoY29sbGFwc2VkKSB2b2lkKDApOyBlbHNlIHZvaWQoMCk7IH0fEAUWQ29sbGFwc2UgV29yayBMb2NhdGlvbhYCAgEPFgwfIAUIQ29sbGFwc2UfIQVEL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9leHBhbmRlZC5naWYfIgVFL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9jb2xsYXBzZWQuZ2lmHyMFRC9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfZXhwYW5kZWQuZ2lmHyQFCENvbGxhcHNlHyUFBkV4cGFuZGQCAg8PZBYCHgxFbmFibGVFeHBhbmQFAVlkAggPDxYGHwtlHwwFCEFDQV9IaWRlHw4CAmRkAgMPFgIfBmhkAgMPDxYCHghJc0hpZGRlbmhkFgJmD2QWAmYPZBYCAgEPFgQfCQUsdGFibGUtbGF5b3V0OmZpeGVkO2JvcmRlci1jb2xsYXBzZTpjb2xsYXBzZTseBXdpZHRoBQU0MDRweGQCBQ8PFgIfBmhkFgQCAg9kFgJmD2QWAgIDD2QWAgIBDxYCHgRuYW1lBSljdGwwMF9QbGFjZUhvbGRlck1haW5fbWFwQ2FwRGV0YWlsX2ZybU1hcGQCBA9kFgJmD2QWBAIBD2QWAgIBDw8WBB8oBTcvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL2dpcy1ub3JtYWwuZ2lmHykFC1Nob3cgb24gTWFwFgYeCm9ubW91c2VvdXQFQnRoaXMuc3JjPScvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL2dpcy1ub3JtYWwuZ2lmJx4Lb25tb3VzZW92ZXIFQHRoaXMuc3JjPScvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL2dpcy1vdmVyLmdpZiceC29ubW91c2Vkb3duBUB0aGlzLnNyYz0nL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9naXMtZG93bi5naWYnZAIDD2QWAgIBD2QWAgIBDxBkZBYAZAIdDxYCHwZoFgQCAQ9kFgICAQ8WDh8ZBQRUcnVlHxoFBHRydWUfGwUMZGl2QXNzZXRMaXN0HxwFLWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEFzc2V0X2xibFNlY3Rpb25UaXRsZR8dBTdjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hBc3NldF9sYmxTZWN0aW9uVGl0bGVfc3ViX2xhYmVsHx4FMWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEFzc2V0X2xua0NvbGxhcHNlT3JFeHBhbmQfHwUxY3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoQXNzZXRfaW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWHAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEFzc2V0JykudG9nZ2xlKCk7IGlmIChjb2xsYXBzZWQpIHZvaWQoMCk7IGVsc2Ugdm9pZCgwKTsgfR8QBQ1FeHBhbmQgQXNzZXRzFgICAQ8WDB8gBQZFeHBhbmQfIQVFL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9jb2xsYXBzZWQuZ2lmHyIFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8jBUQvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2V4cGFuZGVkLmdpZh8kBQhDb2xsYXBzZR8lBQZFeHBhbmRkAgIPD2QWAh8tBQFZZAIIDw8WBh8LZR8MBQhBQ0FfSGlkZR8OAgJkZAIDDxYCHwZoZAIDD2QWAmYPZBYCAgEPZBYGZg8PFgIeDU9uQ2xpZW50Q2xpY2sFOVNldE5vdEFza0ZvclNQRUFSKCk7U2hvd1NlYXJjaEZvcm1EaWFsb2codGhpcywnTGljZW5zZXMnKWRkAgIPZBYCZg9kFgICAQ8PFgIfBmhkFgQCAg9kFgJmD2QWAgIDD2QWAgIBDxYCHzAFL2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9hc3NldExpc3RfbWFwQXNzZXRfZnJtTWFwZAIED2QWAmYPZBYEAgEPZBYCAgEPDxYEHygFNy9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvZ2lzLW5vcm1hbC5naWYfKQUYVXNlIG1hcCB0byBzZWxlY3QgYXNzZXQ6FgYfMQVCdGhpcy5zcmM9Jy9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvZ2lzLW5vcm1hbC5naWYnHzIFQHRoaXMuc3JjPScvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL2dpcy1vdmVyLmdpZicfMwVAdGhpcy5zcmM9Jy9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvZ2lzLWRvd24uZ2lmJ2QCAw9kFgICAQ9kFgICAQ8QZGQWAGQCAw9kFgJmD2QWAgIDDxYCHwZnFgICAQ88KwARBAAPFhAeE1Nob3dGb290ZXJXaGVuRW1wdHloHhNTaG93SGVhZGVyV2hlbkVtcHR5Zx8GZx4LXyFJdGVtQ291bnRmHgpEYXRhU291cmNlMowDAAEAAAD/////AQAAAAAAAAAMAgAAAEtBY2NlbGEuQUNBLk1vZGVsLCBWZXJzaW9uPTcuMy4yLjI0Mzg3LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwEAQAAAJUBU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tBY2NlbGEuQUNBLldTUHJveHkuQXNzZXRNYXN0ZXJNb2RlbCwgQWNjZWxhLkFDQS5Nb2RlbCwgVmVyc2lvbj03LjMuMi4yNDM4NywgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsXV0DAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgQAACVBY2NlbGEuQUNBLldTUHJveHkuQXNzZXRNYXN0ZXJNb2RlbFtdAgAAAAgICQMAAAAAAAAAAAAAAAcDAAAAAAEAAAAAAAAABCNBY2NlbGEuQUNBLldTUHJveHkuQXNzZXRNYXN0ZXJNb2RlbAIAAAALHgtfIURhdGFCb3VuZGceDUVtcHR5RGF0YVRleHQFEU5vIHJlY29yZHMgZm91bmQuHgxPcmRlckNvbHVtbnMyjQIAAQAAAP////8BAAAAAAAAAAQBAAAAflN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLkludDMyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQMAAAAGX2l0ZW1zBV9zaXplCF92ZXJzaW9uBwAACAgICQIAAAAJAAAACQAAAA8CAAAAEAAAAAgAAAAAAQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2QBEBYJZgIBAgICAwIEAgUCBgIHAggWCRQrAAUWAh8GZxYGHgVXaWR0aBsAAAAAAMBiQAEAAAAfDAUXQUNBX0FsaWduTGVmdE9yUmlnaHRUb3AfDgKCAhYGHzwbAAAAAADAYkABAAAAHwwFFEFDQV9BbGlnbkxlZnRPclJpZ2h0Hw4CggJkZBQrAAUWAh8GZxYGHzwbAAAAAADAYkABAAAAHwwFF0FDQV9BbGlnbkxlZnRPclJpZ2h0VG9wHw4CggIWBh88GwAAAAAAwGJAAQAAAB8MBRRBQ0FfQWxpZ25MZWZ0T3JSaWdodB8OAoICZGQUKwAFFgIfBmcWBh88GwAAAAAAwGJAAQAAAB8MBRdBQ0FfQWxpZ25MZWZ0T3JSaWdodFRvcB8OAoICFgYfPBsAAAAAAMBiQAEAAAAfDAUUQUNBX0FsaWduTGVmdE9yUmlnaHQfDgKCAmRkFCsABRYCHwZnFgYfPBsAAAAAAMBiQAEAAAAfDAUXQUNBX0FsaWduTGVmdE9yUmlnaHRUb3AfDgKCAhYGHzwbAAAAAADAYkABAAAAHwwFFEFDQV9BbGlnbkxlZnRPclJpZ2h0Hw4CggJkZBQrAAUWAh8GZxYGHzwbAAAAAADAYkABAAAAHwwFF0FDQV9BbGlnbkxlZnRPclJpZ2h0VG9wHw4CggIWBh88GwAAAAAAwGJAAQAAAB8MBRRBQ0FfQWxpZ25MZWZ0T3JSaWdodB8OAoICZGQUKwAFFgIfBmcWBh88GwAAAAAAwGJAAQAAAB8MBRdBQ0FfQWxpZ25MZWZ0T3JSaWdodFRvcB8OAoICFgYfPBsAAAAAAMBiQAEAAAAfDAUUQUNBX0FsaWduTGVmdE9yUmlnaHQfDgKCAmRkFCsABRYCHwZnFgYfPBsAAAAAAMBiQAEAAAAfDAUXQUNBX0FsaWduTGVmdE9yUmlnaHRUb3AfDgKCAhYGHzwbAAAAAADAYkABAAAAHwwFFEFDQV9BbGlnbkxlZnRPclJpZ2h0Hw4CggJkZBQrAAUWAh8GZxYGHzwbAAAAAADAYkABAAAAHwwFF0FDQV9BbGlnbkxlZnRPclJpZ2h0VG9wHw4CggIWBh88GwAAAAAAwGJAAQAAAB8MBRRBQ0FfQWxpZ25MZWZ0T3JSaWdodB8OAoICZGQUKwAFFgIfBmcWBh88GwAAAAAAwGJAAQAAAB8MBRdBQ0FfQWxpZ25MZWZ0T3JSaWdodFRvcB8OAoICFgYfPBsAAAAAAMBiQAEAAAAfDAUUQUNBX0FsaWduTGVmdE9yUmlnaHQfDgKCAmRkDxYJAgcCBwIHAgcCBwIHAgcCBwIHFgEFd0FjY2VsYS5XZWIuQ29udHJvbHMuQWNjZWxhVGVtcGxhdGVGaWVsZCwgQWNjZWxhLldlYi5Db250cm9scywgVmVyc2lvbj03LjMuMi4xNzA3NywgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsCxYEHzwbAAAAAAAYlUABAAAAHw4CgAIMFCsAAGQCHw8WAh8GZxYQAgEPZBYCAgEPFg4fGQUEVHJ1ZR8aBQR0cnVlHxsFE2RpdlBlcm1pdERldGFpbEluZm8fHAU0Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoUGVybWl0RGV0YWlsX2xibFNlY3Rpb25UaXRsZR8dBT5jdGwwMF9QbGFjZUhvbGRlck1haW5fc2hQZXJtaXREZXRhaWxfbGJsU2VjdGlvblRpdGxlX3N1Yl9sYWJlbB8eBThjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hQZXJtaXREZXRhaWxfbG5rQ29sbGFwc2VPckV4cGFuZB8fBThjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hQZXJtaXREZXRhaWxfaW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWOAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFBlcm1pdERldGFpbCcpLnRvZ2dsZSgpOyBpZiAoY29sbGFwc2VkKSB2b2lkKDApOyBlbHNlIHZvaWQoMCk7IH0fEAUXQ29sbGFwc2UgUmVjb3JkIERldGFpbHMWAgIBDxYMHyAFCENvbGxhcHNlHyEFRC9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfZXhwYW5kZWQuZ2lmHyIFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8jBUQvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2V4cGFuZGVkLmdpZh8kBQhDb2xsYXBzZR8lBQZFeHBhbmRkAgIPD2QWAh8tBQFZZAIIDw8WBh8LZR8MBQhBQ0FfSGlkZR8OAgJkZAIDDxYCHwZoZAIDDw8WBB4OSGlkZGVuU2VjdGlvbnMylQIAAQAAAP////8BAAAAAAAAAAQBAAAAf1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0DAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgYAAAgICQIAAAADAAAAAwAAABECAAAABAAAAAYDAAAACUFQUExJQ0FOVAYEAAAAFkFERElUSU9OQUxfSU5GT1JNQVRJT04GBQAAABdBUFBMSUNBVElPTl9JTkZPUk1BVElPTgoLHg5SZU9yZGVyU2VjdGlvbjLxCwABAAAA/////wEAAAAAAAAABAEAAADiAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XSxbU3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0EAAAAB1ZlcnNpb24IQ29tcGFyZXIISGFzaFNpemUNS2V5VmFsdWVQYWlycwADAAMIkgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5HZW5lcmljRXF1YWxpdHlDb21wYXJlcmAxW1tTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQjmAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLktleVZhbHVlUGFpcmAyW1tTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldLFtTeXN0ZW0uT2JqZWN0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXVtdBAAAAAkCAAAABwAAAAkDAAAABAIAAACSAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkdlbmVyaWNFcXVhbGl0eUNvbXBhcmVyYDFbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAAAAAAcDAAAAAAEAAAAEAAAAA+QBU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuS2V5VmFsdWVQYWlyYDJbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV0sW1N5c3RlbS5PYmplY3QsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dBPz////kAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLktleVZhbHVlUGFpcmAyW1tTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldLFtTeXN0ZW0uT2JqZWN0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQIAAAADa2V5BXZhbHVlAQIGBQAAAAlBUFBMSUNBTlQGBgAAAAlBUFBMSUNBTlQB+f////z///8GCAAAABVMSUNFTlNFRCBQUk9GRVNTSU9OQUwGCQAAABVMSUNFTlNFRF9QUk9GRVNTSU9OQUwB9v////z///8GCwAAAAU2MDAxNQYMAAAAE1BST0pFQ1RfREVTQ1JJUFRJT04B8/////z///8GDgAAAAVPV05FUgYPAAAABU9XTkVSC2QWAmYPZBYCZg9kFgQCAQ8WBB8JBSx0YWJsZS1sYXlvdXQ6Zml4ZWQ7Ym9yZGVyLWNvbGxhcHNlOmNvbGxhcHNlOx8vBQU3MTRweGQCAw9kFggCAQ9kFgICAQ88KwAJAQAPFgQeCERhdGFLZXlzFgAfNwIBZBYCZg9kFgJmDxUB+Q08ZGl2IGNsYXNzPSdNb3JlRGV0YWlsX0l0ZW1Db2wgTW9yZURldGFpbF9JdGVtQ29sMSc+PGgyPkFwcGxpY2FudCAoTGFuZGxvcmQpIGluZm9ybWF0aW9uPC9oMj4gPGRpdiBjbGFzcz0nQUNBX0NvbmZpZ0luZm8gQUNBX0ZMZWZ0JyBzdHlsZT0nd2lkdGg6MzAlOyc+IDx1bD48dGFibGUgcm9sZT0ncHJlc2VudGF0aW9uJyBzdHlsZT0nVEVNUExBVEVfU1RZTEUnIGNsYXNzPSdDb25maXJtX3RhYmxlIEFDQV9TbUxhYmVsIEFDQV9TbUxhYmVsX0ZvbnRTaXplJz48dHI+PHRkPjxzcGFuPlN0ZXBoYW4gPC9zcGFuPjxzcGFuPk0gPC9zcGFuPjxzcGFuPktsaW5lPC9zcGFuPiA8YnIvPiAgICAgICAgICAgICAgICBLbGluZSBQcm9wZXJ0aWVzLCBJbmMuPGJyLz4gICAgICAgICAgICAgICAgMzkwMSBTIEVhc3QgU3QsIFN1aXRlIEU8YnIvPiAgICAgICAgICAgICAgICBJbmRpYW5hcG9saXMsIElOLCA0NjIyNzwvdGQ+PC90cj48L3RhYmxlPjx0YWJsZSByb2xlPSdwcmVzZW50YXRpb24nIGNsYXNzPSd0YWJsZV9jaGlsZCBBQ0FfU21MYWJlbCBBQ0FfU21MYWJlbF9Gb250U2l6ZSc+PHRyPjx0ZD48dGFibGUgcm9sZT0ncHJlc2VudGF0aW9uJyBjbGFzcz0nQUNBX1REQWxpZ25MZWZ0T3JSaWdodFRvcCcgYm9yZGVyPScwJyBjZWxscGFkZGluZz0nMCcgY2VsbHNwYWNpbmc9JzAnPjx0cj48dGQgc3R5bGU9J3ZlcnRpY2FsLWFsaWduOnRvcDsnPlByaW1hcnkgUGhvbmU6PC90ZD48dGQgc3R5bGU9J3ZlcnRpY2FsLWFsaWduOnRvcDsnPjxkaXYgY2xhc3M9IkFDQV9QaG9uZU51bWJlckxUUiI+MzE3LTY0NC0xNDAwPC9kaXY+PC90ZD48L3RyPjwvdGFibGU+PHRhYmxlIHJvbGU9J3ByZXNlbnRhdGlvbicgY2xhc3M9J0FDQV9UREFsaWduTGVmdE9yUmlnaHRUb3AnIGJvcmRlcj0nMCcgY2VsbHBhZGRpbmc9JzAnIGNlbGxzcGFjaW5nPScwJz48dHI+PHRkIHN0eWxlPSd2ZXJ0aWNhbC1hbGlnbjp0b3A7Jz5BbHRlcm5hdGUgUGhvbmU6PC90ZD48dGQgc3R5bGU9J3ZlcnRpY2FsLWFsaWduOnRvcDsnPjxkaXYgY2xhc3M9IkFDQV9QaG9uZU51bWJlckxUUiI+MzE3LTY0NC0xNDAxPC9kaXY+PC90ZD48L3RyPjwvdGFibGU+PHRhYmxlIHJvbGU9J3ByZXNlbnRhdGlvbicgY2xhc3M9J0FDQV9UREFsaWduTGVmdE9yUmlnaHRUb3AnIGJvcmRlcj0nMCcgY2VsbHBhZGRpbmc9JzAnIGNlbGxzcGFjaW5nPScwJz48dHI+PHRkIHN0eWxlPSd2ZXJ0aWNhbC1hbGlnbjp0b3A7Jz5GYXg6PC90ZD48dGQgc3R5bGU9J3ZlcnRpY2FsLWFsaWduOnRvcDsnPjxkaXYgY2xhc3M9IkFDQV9QaG9uZU51bWJlckxUUiI+MzE3LTc4MS0wMTU1PC9kaXY+PC90ZD48L3RyPjwvdGFibGU+PHRhYmxlIHJvbGU9J3ByZXNlbnRhdGlvbicgY2xhc3M9J0FDQV9UREFsaWduTGVmdE9yUmlnaHRUb3AnIGJvcmRlcj0nMCcgY2VsbHBhZGRpbmc9JzAnIGNlbGxzcGFjaW5nPScwJz48dHI+PHRkIHN0eWxlPSd2ZXJ0aWNhbC1hbGlnbjp0b3A7Jz5FLW1haWw6PC90ZD48dGQgc3R5bGU9J3ZlcnRpY2FsLWFsaWduOnRvcDsnPjx0YWJsZSByb2xlPSdwcmVzZW50YXRpb24nIGNsYXNzPSdBQ0FfVERBbGlnbkxlZnRPclJpZ2h0VG9wJyBib3JkZXI9JzAnIGNlbGxwYWRkaW5nPScwJyBjZWxsc3BhY2luZz0nMCc+PHRyPjx0ZCBzdHlsZT0ndmVydGljYWwtYWxpZ246dG9wOyc+c2tsaW5lQGtsaW5lcG0uY29tPC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPjwvdGFibGU+PC90ZD48L3RyPjwvdGFibGU+IDwvdWw+PC9kaXY+IDxkaXYgY2xhc3M9J0FDQV9UYWJSb3cgQUNBX0ZMZWZ0Jz48L2Rpdj48L2Rpdj5kAgIPFgIfBmhkAgMPFgIfBmhkAgUPFgIfBmhkAgcPD2QWAh8PBYcBcHJpbnRfb25jbGljaygnLi4vUmVwb3J0L1JlcG9ydFBhcmFtZXRlci5hc3B4P01vZHVsZT1MaWNlbnNlcyZyZXBvcnRUeXBlPVBSSU5UX1BFUk1JVF9SRVBPUlQmcmVwb3J0SUQ9MCZhZ2VuY3lDb2RlPUlORFknKTtyZXR1cm4gZmFsc2U7ZAILDw8WBB8mBRVTaG9wcGluZyBDYXJ0IFJlY2VpcHQfBmcWAh8PBZIBcHJpbnRfb25jbGljaygnLi4vUmVwb3J0L1JlcG9ydFBhcmFtZXRlci5hc3B4P01vZHVsZT1MaWNlbnNlcyZyZXBvcnRUeXBlPVBSSU5UX1BFUk1JVF9TVU1NQVJZX1JFUE9SVCZyZXBvcnRJRD0yMTAwJmFnZW5jeUNvZGU9SU5EWScpO3JldHVybiBmYWxzZTtkAg8PFgIfBmhkAhEPFgIfBmhkAhMPFgIfBmgWAgIBDw8WAh8GaGRkAhUPFgIfBmhkAiEPZBYCZg9kFgICAQ8WDh8ZBQRUcnVlHxoFBHRydWUfGwURZGl2RmVlTGlzdENvbnRlbnQfHAUrY3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoRmVlX2xibFNlY3Rpb25UaXRsZR8dBTVjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hGZWVfbGJsU2VjdGlvblRpdGxlX3N1Yl9sYWJlbB8eBS9jdGwwMF9QbGFjZUhvbGRlck1haW5fc2hGZWVfbG5rQ29sbGFwc2VPckV4cGFuZB8fBS9jdGwwMF9QbGFjZUhvbGRlck1haW5fc2hGZWVfaW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWQAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEZlZScpLnRvZ2dsZSgpOyBpZiAoY29sbGFwc2VkKSB2b2lkKDApOyBlbHNlIEV4cGFuZEZlZVNlY3Rpb24oKTsgfR8QBQtFeHBhbmQgRmVlcxYCAgEPFgwfIAUGRXhwYW5kHyEFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8iBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIwVEL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9leHBhbmRlZC5naWYfJAUIQ29sbGFwc2UfJQUGRXhwYW5kZAICDw9kFgIfLQUBWWQCCA8PFgYfC2UfDAUIQUNBX0hpZGUfDgICZGQCAw8WAh8GaGQCIw9kFgQCAQ9kFgICAQ8WDh8ZBQRUcnVlHxoFBHRydWUfGwUPaW5zcGVjdGlvblRhYmxlHxwFMmN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEluc3BlY3Rpb25fbGJsU2VjdGlvblRpdGxlHx0FPGN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEluc3BlY3Rpb25fbGJsU2VjdGlvblRpdGxlX3N1Yl9sYWJlbB8eBTZjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hJbnNwZWN0aW9uX2xua0NvbGxhcHNlT3JFeHBhbmQfHwU2Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoSW5zcGVjdGlvbl9pbWdDb2xsYXBzZU9yRXhwYW5kFgQCAQ9kFgYCAQ8WBB8PBYwBaWYgKHRydWUpIHsgdmFyIGNvbGxhcHNlZCA9IG5ldyBTZWN0aW9uSGVhZGVyTWFuYWdlcignY3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoSW5zcGVjdGlvbicpLnRvZ2dsZSgpOyBpZiAoY29sbGFwc2VkKSB2b2lkKDApOyBlbHNlIHZvaWQoMCk7IH0fEAUUQ29sbGFwc2UgSW5zcGVjdGlvbnMWAgIBDxYMHyAFCENvbGxhcHNlHyEFRC9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfZXhwYW5kZWQuZ2lmHyIFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8jBUQvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2V4cGFuZGVkLmdpZh8kBQhDb2xsYXBzZR8lBQZFeHBhbmRkAgIPD2QWAh8tBQFZZAIIDw8WBh8LZR8MBQhBQ0FfSGlkZR8OAgJkZAIDDxYCHwZoZAIDDw8WAh8GaGQWAmYPZBYCZg9kFgQCAQ9kFgJmD2QWAgIHDzwrABECARAWABYAFgAMFCsAAGQCAw9kFgJmD2QWAgIJDzwrABECARAWABYAFgAMFCsAAGQCJQ9kFgICAQ9kFgRmD2QWAgIBDxYOHxkFBFRydWUfGgUEdHJ1ZR8bBQ5kaXZQcm9jZXNzSW5mbx8cBTVjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hQcm9jZXNzU3RhdHVzX2xibFNlY3Rpb25UaXRsZR8dBT9jdGwwMF9QbGFjZUhvbGRlck1haW5fc2hQcm9jZXNzU3RhdHVzX2xibFNlY3Rpb25UaXRsZV9zdWJfbGFiZWwfHgU5Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoUHJvY2Vzc1N0YXR1c19sbmtDb2xsYXBzZU9yRXhwYW5kHx8FOWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFByb2Nlc3NTdGF0dXNfaW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWfAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFByb2Nlc3NTdGF0dXMnKS50b2dnbGUoKTsgaWYgKGNvbGxhcHNlZCkgdm9pZCgwKTsgZWxzZSBFeHBhbmRXb3JrZmxvd1NlY3Rpb24oKTsgfR8QBRhFeHBhbmQgUHJvY2Vzc2luZyBTdGF0dXMWAgIBDxYMHyAFBkV4cGFuZB8hBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIgVFL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9jb2xsYXBzZWQuZ2lmHyMFRC9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfZXhwYW5kZWQuZ2lmHyQFCENvbGxhcHNlHyUFBkV4cGFuZGQCAg8PZBYCHy0FAVlkAggPDxYGHwtlHwwFCEFDQV9IaWRlHw4CAmRkAgMPFgIfBmhkAgEPZBYCZg9kFgJmD2QWAgIBD2QWAgIDDxYCHglpbm5lcmh0bWwFngM8c3Bhbj5DbGljayB0aGUgYXJlYSBiZWxvdyB0byBlZGl0IHByb2Nlc3MgYXZhaWxhYmxlIHZhcmlhYmxlcyBhY2NvcmRpbmcgdG8gZm9ybWF0Ojwvc3Bhbj48YnIgLz48c3Bhbj4kJER1ZURhdGUkJDogVGFzayBkdWUgZGF0ZTwvc3Bhbj48YnIgLz48c3Bhbj4kJEFzc2lnbmVkVG8kJDogVG8gd2hvbSB0aGUgdGFzayBpcyBhc3NpZ25lZDwvc3Bhbj48YnIgLz48c3Bhbj4kJFRhc2tTdGF0dXMkJDogQ3VycmVudCBzdGF0dXMgb2YgdGhlIHRhc2s8L3NwYW4+PGJyIC8+PHNwYW4+JCRTdGF0dXNEYXRlJCQ6IEVmZmVjdGl2ZSBkYXRlIG9mIHRoZSBjdXJyZW50IHN0YXR1czwvc3Bhbj48YnIgLz48c3Bhbj4kJEFjdGlvbkJ5JCQ6IEJ5IHdob20gdGhlIGN1cnJlbnQgc3RhdHVzIG9mIHRoZSB0YXNrIGlzIHNldDwvc3Bhbj48YnIgLz5kAicPFgIfBmgWBAIBD2QWAgIBDxYOHxkFBFRydWUfGgUEdHJ1ZR8bBQ1kaXZBdHRhY2htZW50HxwFMmN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEF0dGFjaG1lbnRfbGJsU2VjdGlvblRpdGxlHx0FPGN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEF0dGFjaG1lbnRfbGJsU2VjdGlvblRpdGxlX3N1Yl9sYWJlbB8eBTZjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hBdHRhY2htZW50X2xua0NvbGxhcHNlT3JFeHBhbmQfHwU2Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoQXR0YWNobWVudF9pbWdDb2xsYXBzZU9yRXhwYW5kFgQCAQ9kFgYCAQ8WBB8PBZ4BaWYgKHRydWUpIHsgdmFyIGNvbGxhcHNlZCA9IG5ldyBTZWN0aW9uSGVhZGVyTWFuYWdlcignY3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoQXR0YWNobWVudCcpLnRvZ2dsZSgpOyBpZiAoY29sbGFwc2VkKSB2b2lkKDApOyBlbHNlIEV4cGFuZEF0dGFjaG1lbnRTZWN0aW9uKCk7IH0fEAUSRXhwYW5kIEF0dGFjaG1lbnRzFgICAQ8WDB8gBQZFeHBhbmQfIQVFL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9jb2xsYXBzZWQuZ2lmHyIFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8jBUQvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2V4cGFuZGVkLmdpZh8kBQhDb2xsYXBzZR8lBQZFeHBhbmRkAgIPD2QWAh8tBQFZZAIIDw8WBh8LZR8MBQhBQ0FfSGlkZR8OAgJkZAIDDxYCHwZoZAIDDw8WAh4ORG9jdW1lbnRTb3VyY2UyiQMAAQAAAP////8BAAAAAAAAAAwCAAAAS0FjY2VsYS5BQ0EuTW9kZWwsIFZlcnNpb249Ny4zLjIuMjQzODcsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAQBAAAAlAFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0FjY2VsYS5BQ0EuVUkuTW9kZWwuRmlsZVVwbG9hZEluZm8sIEFjY2VsYS5BQ0EuTW9kZWwsIFZlcnNpb249Ny4zLjIuMjQzODcsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbF1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAkQWNjZWxhLkFDQS5VSS5Nb2RlbC5GaWxlVXBsb2FkSW5mb1tdAgAAAAgICQMAAAAAAAAAAAAAAAcDAAAAAAEAAAAAAAAABCJBY2NlbGEuQUNBLlVJLk1vZGVsLkZpbGVVcGxvYWRJbmZvAgAAAAtkFgYCBg8PFgIfBmhkZAIHDw8WAh8GaGRkAggPZBYCZg9kFgJmD2QWCAICD2QWAmYPZBYCAgEPPCsACQEADxYEHz8WAB83ZmRkAgMPZBYCAgEPDxYCHzQFNGN0bDAwX1BsYWNlSG9sZGVyTWFpbl9hdHRhY2htZW50RWRpdF9TYXZlRG9jdW1lbnQoKTtkZAIEDw9kFgIfDwU5cmV0dXJuIGN0bDAwX1BsYWNlSG9sZGVyTWFpbl9hdHRhY2htZW50RWRpdF9Ccm93c2VGaWxlKCk7ZAIGD2QWAgIBDw8WAh80BTZjdGwwMF9QbGFjZUhvbGRlck1haW5fYXR0YWNobWVudEVkaXRfUmVtb3ZlQWxsRmlsZXMoKTtkZAIpD2QWBGYPZBYCAgEPFg4fGQUEVHJ1ZR8aBQR0cnVlHxsFEGRpdlJlbGF0ZWRQZXJtaXQfHAU1Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoUmVsYXRlZFBlcm1pdF9sYmxTZWN0aW9uVGl0bGUfHQU/Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoUmVsYXRlZFBlcm1pdF9sYmxTZWN0aW9uVGl0bGVfc3ViX2xhYmVsHx4FOWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFJlbGF0ZWRQZXJtaXRfbG5rQ29sbGFwc2VPckV4cGFuZB8fBTljdGwwMF9QbGFjZUhvbGRlck1haW5fc2hSZWxhdGVkUGVybWl0X2ltZ0NvbGxhcHNlT3JFeHBhbmQWBAIBD2QWBgIBDxYEHw8FqQFpZiAodHJ1ZSkgeyB2YXIgY29sbGFwc2VkID0gbmV3IFNlY3Rpb25IZWFkZXJNYW5hZ2VyKCdjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hSZWxhdGVkUGVybWl0JykudG9nZ2xlKCk7IGlmIChjb2xsYXBzZWQpIHZvaWQoMCk7IGVsc2UgRXhwYW5kUmVsYXRlZFBlcm1pdFNlY3Rpb24oZmFsc2UpOyB9HxAFFkV4cGFuZCBSZWxhdGVkIFJlY29yZHMWAgIBDxYMHyAFBkV4cGFuZB8hBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIgVFL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9jb2xsYXBzZWQuZ2lmHyMFRC9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfZXhwYW5kZWQuZ2lmHyQFCENvbGxhcHNlHyUFBkV4cGFuZGQCAg8PZBYCHy0FAVlkAggPDxYGHwtlHwwFCEFDQV9IaWRlHw4CAmRkAgMPFgIfBmhkAgIPFgIfBmhkAisPZBYEAgEPZBYCAgEPFg4fGQUEVHJ1ZR8aBQR0cnVlHxsFEGRpdkVkdWNhdGlvbkxpc3QfHAUxY3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoRWR1Y2F0aW9uX2xibFNlY3Rpb25UaXRsZR8dBTtjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hFZHVjYXRpb25fbGJsU2VjdGlvblRpdGxlX3N1Yl9sYWJlbB8eBTVjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hFZHVjYXRpb25fbG5rQ29sbGFwc2VPckV4cGFuZB8fBTVjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hFZHVjYXRpb25faW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWLAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEVkdWNhdGlvbicpLnRvZ2dsZSgpOyBpZiAoY29sbGFwc2VkKSB2b2lkKDApOyBlbHNlIHZvaWQoMCk7IH0fEAUQRXhwYW5kIEVkdWNhdGlvbhYCAgEPFgwfIAUGRXhwYW5kHyEFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8iBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIwVEL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9leHBhbmRlZC5naWYfJAUIQ29sbGFwc2UfJQUGRXhwYW5kZAICDw9kFgIfLQUBWWQCCA8PFgYfC2UfDAUIQUNBX0hpZGUfDgICZGQCAw8WAh8GaGQCAw9kFgJmD2QWAgIBD2QWAmYPZBYCZg9kFgICBQ88KwARAgEQFgECARYBPCsABQEAFgIfBmgPFgECBxYBBXdBY2NlbGEuV2ViLkNvbnRyb2xzLkFjY2VsYVRlbXBsYXRlRmllbGQsIEFjY2VsYS5XZWIuQ29udHJvbHMsIFZlcnNpb249Ny4zLjIuMTcwNzcsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAwUKwAAZAItD2QWBgIBD2QWAgIBDxYOHxkFBFRydWUfGgUEdHJ1ZR8bBRRkaXZDb250RWR1Y2F0aW9uTGlzdB8cBTVjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hDb250RWR1Y2F0aW9uX2xibFNlY3Rpb25UaXRsZR8dBT9jdGwwMF9QbGFjZUhvbGRlck1haW5fc2hDb250RWR1Y2F0aW9uX2xibFNlY3Rpb25UaXRsZV9zdWJfbGFiZWwfHgU5Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoQ29udEVkdWNhdGlvbl9sbmtDb2xsYXBzZU9yRXhwYW5kHx8FOWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaENvbnRFZHVjYXRpb25faW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWPAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaENvbnRFZHVjYXRpb24nKS50b2dnbGUoKTsgaWYgKGNvbGxhcHNlZCkgdm9pZCgwKTsgZWxzZSB2b2lkKDApOyB9HxAFG0V4cGFuZCBDb250aW51aW5nIEVkdWNhdGlvbhYCAgEPFgwfIAUGRXhwYW5kHyEFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8iBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIwVEL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9leHBhbmRlZC5naWYfJAUIQ29sbGFwc2UfJQUGRXhwYW5kZAICDw9kFgIfLQUBWWQCCA8PFgYfC2UfDAUIQUNBX0hpZGUfDgICZGQCAw8WAh8GaGQCAw9kFgICDQ88KwARAgEQFgQCAQICAgMCBBYEPCsABQEAFgIfBmc8KwAFAQAWAh8GZzwrAAUBABYCHwZnFCsABRYCHwZnFgQfPBsAAAAAAJB5QAEAAAAfDgKAAhYEHzwbAAAAAACQeUABAAAAHw4CgAJkZA8WBAIHAgcCBwIHFgEFd0FjY2VsYS5XZWIuQ29udHJvbHMuQWNjZWxhVGVtcGxhdGVGaWVsZCwgQWNjZWxhLldlYi5Db250cm9scywgVmVyc2lvbj03LjMuMi4xNzA3NywgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDBQrAABkAgcPZBYCZg9kFgICAQ9kFgJmD2QWAmYPZBYEAgUPFgIfJwUIQUNBX0hpZGVkAgkPPCsAEQIBEBYBAgEWATwrAAUBABYCHwZoDxYBAgcWAQV3QWNjZWxhLldlYi5Db250cm9scy5BY2NlbGFUZW1wbGF0ZUZpZWxkLCBBY2NlbGEuV2ViLkNvbnRyb2xzLCBWZXJzaW9uPTcuMy4yLjE3MDc3LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwMFCsAAGQCLw9kFgQCAQ9kFgICAQ8WDh8ZBQRUcnVlHxoFBHRydWUfGwUSZGl2RXhhbWluYXRpb25MaXN0HxwFM2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEV4YW1pbmF0aW9uX2xibFNlY3Rpb25UaXRsZR8dBT1jdGwwMF9QbGFjZUhvbGRlck1haW5fc2hFeGFtaW5hdGlvbl9sYmxTZWN0aW9uVGl0bGVfc3ViX2xhYmVsHx4FN2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEV4YW1pbmF0aW9uX2xua0NvbGxhcHNlT3JFeHBhbmQfHwU3Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoRXhhbWluYXRpb25faW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWNAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaEV4YW1pbmF0aW9uJykudG9nZ2xlKCk7IGlmIChjb2xsYXBzZWQpIHZvaWQoMCk7IGVsc2Ugdm9pZCgwKTsgfR8QBRJFeHBhbmQgRXhhbWluYXRpb24WAgIBDxYMHyAFBkV4cGFuZB8hBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIgVFL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9jb2xsYXBzZWQuZ2lmHyMFRC9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfZXhwYW5kZWQuZ2lmHyQFCENvbGxhcHNlHyUFBkV4cGFuZGQCAg8PZBYCHy0FAVlkAggPDxYGHwtlHwwFCEFDQV9IaWRlHw4CAmRkAgMPFgIfBmhkAgMPZBYCZg9kFgICAQ9kFgJmD2QWAmYPZBYIAgMPZBYCZg9kFgICBw88KwARAgEQFgAWABYADBQrAABkAgUPZBYCZg9kFgICBw88KwARAgEQFgAWABYADBQrAABkAgcPZBYCZg9kFgICBQ88KwARAgEQFgAWABYADBQrAABkAgkPZBYCZg9kFgICBQ88KwARAgEQFgAWABYADBQrAABkAjEPFgIfBmgWBAIBD2QWAgIBDxYOHxkFBFRydWUfGgUEdHJ1ZR8bBRpkaXZWYWx1YXRpb25DYWxjdWxhdG9yTGlzdB8cBTtjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hWYWx1YXRpb25DYWxjdWxhdG9yX2xibFNlY3Rpb25UaXRsZR8dBUVjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hWYWx1YXRpb25DYWxjdWxhdG9yX2xibFNlY3Rpb25UaXRsZV9zdWJfbGFiZWwfHgU/Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoVmFsdWF0aW9uQ2FsY3VsYXRvcl9sbmtDb2xsYXBzZU9yRXhwYW5kHx8FP2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFZhbHVhdGlvbkNhbGN1bGF0b3JfaW1nQ29sbGFwc2VPckV4cGFuZBYEAgEPZBYGAgEPFgQfDwWVAWlmICh0cnVlKSB7IHZhciBjb2xsYXBzZWQgPSBuZXcgU2VjdGlvbkhlYWRlck1hbmFnZXIoJ2N0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFZhbHVhdGlvbkNhbGN1bGF0b3InKS50b2dnbGUoKTsgaWYgKGNvbGxhcHNlZCkgdm9pZCgwKTsgZWxzZSB2b2lkKDApOyB9HxAFG0V4cGFuZCBWYWx1YXRpb24gQ2FsY3VsYXRvchYCAgEPFgwfIAUGRXhwYW5kHyEFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8iBUUvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2NvbGxhcHNlZC5naWYfIwVEL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9leHBhbmRlZC5naWYfJAUIQ29sbGFwc2UfJQUGRXhwYW5kZAICDw9kFgIfLQUBWWQCCA8PFgYfC2UfDAUIQUNBX0hpZGUfDgICZGQCAw8WAh8GaGQCAw9kFgJmD2QWAgIBD2QWAmYPZBYCZg9kFgICAQ88KwARAgEQFgAWABYADBQrAABkAjMPFgIfBmgWBAIBD2QWAgIBDxYOHxkFBFRydWUfGgUEdHJ1ZR8bBRBkaXZUcnVzdEFjY3RMaXN0HxwFMWN0bDAwX1BsYWNlSG9sZGVyTWFpbl9zaFRydXN0QWNjdF9sYmxTZWN0aW9uVGl0bGUfHQU7Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoVHJ1c3RBY2N0X2xibFNlY3Rpb25UaXRsZV9zdWJfbGFiZWwfHgU1Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoVHJ1c3RBY2N0X2xua0NvbGxhcHNlT3JFeHBhbmQfHwU1Y3RsMDBfUGxhY2VIb2xkZXJNYWluX3NoVHJ1c3RBY2N0X2ltZ0NvbGxhcHNlT3JFeHBhbmQWBAIBD2QWBgIBDxYEHw8FiwFpZiAodHJ1ZSkgeyB2YXIgY29sbGFwc2VkID0gbmV3IFNlY3Rpb25IZWFkZXJNYW5hZ2VyKCdjdGwwMF9QbGFjZUhvbGRlck1haW5fc2hUcnVzdEFjY3QnKS50b2dnbGUoKTsgaWYgKGNvbGxhcHNlZCkgdm9pZCgwKTsgZWxzZSB2b2lkKDApOyB9HxAFIEV4cGFuZCBUcnVzdCBBY2NvdW50IEluZm9ybWF0aW9uFgICAQ8WDB8gBQZFeHBhbmQfIQVFL0NpdGl6ZW5BY2Nlc3MvYXBwX3RoZW1lcy9EZWZhdWx0L2Fzc2V0cy9zZWN0aW9uX2hlYWRlcl9jb2xsYXBzZWQuZ2lmHyIFRS9DaXRpemVuQWNjZXNzL2FwcF90aGVtZXMvRGVmYXVsdC9hc3NldHMvc2VjdGlvbl9oZWFkZXJfY29sbGFwc2VkLmdpZh8jBUQvQ2l0aXplbkFjY2Vzcy9hcHBfdGhlbWVzL0RlZmF1bHQvYXNzZXRzL3NlY3Rpb25faGVhZGVyX2V4cGFuZGVkLmdpZh8kBQhDb2xsYXBzZR8lBQZFeHBhbmRkAgIPD2QWAh8tBQFZZAIIDw8WBh8LZR8MBQhBQ0FfSGlkZR8OAgJkZAIDDxYCHwZoZAIDD2QWAmYPZBYCAgEPZBYCZg9kFgJmD2QWAgIBDzwrABEEAA8WBB8rZx8sBRBUcnVzdEFjY291bnRMaXN0ZAEQFgdmAgECAgIDAgQCBQIGFgc8KwAFAQAWAh8GZzwrAAUBABYEHgpTaG93SGVhZGVyZx8GZzwrAAUBABYCHwZnPCsABQEAFgIfBmc8KwAFAQAWAh8GZzwrAAUBABYCHwZnPCsABQEAFgIfBmcPFgcCBwIHAgcCBwIHAgcCBxYBBXdBY2NlbGEuV2ViLkNvbnRyb2xzLkFjY2VsYVRlbXBsYXRlRmllbGQsIEFjY2VsYS5XZWIuQ29udHJvbHMsIFZlcnNpb249Ny4zLjIuMTcwNzcsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAsWBB88GwAAAAAAkIpAAQAAAB8OAoACDBQrAABkAgQPDxYCHwZoZGQYDwVEY3RsMDAkUGxhY2VIb2xkZXJNYWluJGNvbnRFZHVjYXRpb25TdW1tYXJ5TGlzdCRnZHZTdW1tYXJ5Q29udEVkdUxpc3QPZ2QFNWN0bDAwJFBsYWNlSG9sZGVyTWFpbiRFeGFtaW5hdGlvbkxpc3QkZ3ZMaXN0Q29tcGxldGVkD2dkBTRjdGwwMCRQbGFjZUhvbGRlck1haW4kZWR1Y2F0aW9uTGlzdCRnZHZFZHVjYXRpb25MaXN0D2dkBTxjdGwwMCRQbGFjZUhvbGRlck1haW4kY29udEVkdWNhdGlvbkxpc3QkZ2R2Q29udEVkdWNhdGlvbkxpc3QPZ2QFPGN0bDAwJFBsYWNlSG9sZGVyTWFpbiRjYXBDb25kaXRpb25zJGdkdkdlbmVyYWxDb25kaXRpb25zTGlzdA9nZAVJY3RsMDAkUGxhY2VIb2xkZXJNYWluJFZhbHVhdGlvbkNhbGN1bGF0b3JWaWV3JGdkdlZhbHVhdGlvbkNhbGN1bGF0b3JHcm91cA9nZAU0Y3RsMDAkUGxhY2VIb2xkZXJNYWluJEluc3BlY3Rpb25MaXN0JGd2TGlzdENvbXBsZXRlZA9nZAUrY3RsMDAkUGxhY2VIb2xkZXJNYWluJGFzc2V0TGlzdCRndkFzc2V0TGlzdA88KwAMAQhmZAUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgMFOWN0bDAwJFBsYWNlSG9sZGVyTWFpbiRhZGRGb3JEZXRhaWxQYWdlJHJkb0V4aXN0Q29sbGVjdGlvbgU3Y3RsMDAkUGxhY2VIb2xkZXJNYWluJGFkZEZvckRldGFpbFBhZ2UkcmRvTmV3Q29sbGVjdGlvbgU3Y3RsMDAkUGxhY2VIb2xkZXJNYWluJGFkZEZvckRldGFpbFBhZ2UkcmRvTmV3Q29sbGVjdGlvbgU1Y3RsMDAkUGxhY2VIb2xkZXJNYWluJEV4YW1pbmF0aW9uTGlzdCRndkxpc3RTY2hlZHVsZWQPZ2QFN2N0bDAwJFBsYWNlSG9sZGVyTWFpbiRFeGFtaW5hdGlvbkxpc3QkZ3ZSZWFkeVRvU2NoZWR1bGUPZ2QFNGN0bDAwJFBsYWNlSG9sZGVyTWFpbiR0cnVzdEFjY3RMaXN0JGdkdlRydXN0QWNjdExpc3QPZ2QFP2N0bDAwJFBsYWNlSG9sZGVyTWFpbiRjYXBDb25kaXRpb25zJGdkdkNvbmRpdGlvbnNPZkFwcHJvdmFsTGlzdA9nZAUzY3RsMDAkUGxhY2VIb2xkZXJNYWluJEV4YW1pbmF0aW9uTGlzdCRndkxpc3RQZW5kaW5nD2dkBTNjdGwwMCRQbGFjZUhvbGRlck1haW4kSW5zcGVjdGlvbkxpc3QkZ3ZMaXN0VXBjb21pbmcPZ2Q4xuyTHCmWmxd9TflLs7tFgwcQIuKQSi7E9WM7keRmTQ==" id="__VIEWSTATE" name="__VIEWSTATE" />
+</div>
+
+<script type="text/javascript">
+//&lt;![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]&gt;
+</script>
+
+
+<script type="text/javascript" src="/CitizenAccess/WebResource.axd?d=4Y0An0qT4Rhmmop_jthzsEmIlEMs1fV9RFuUUznSsOj3adNrYcBxV6tRWxGBkckX0wMpjF0eE3cDM0Eaah42ZFKzv3HacszBEc1J9axvVXs1&amp;t=635803038500000000"></script>
+
+
+<script type="text/javascript" src="/CitizenAccess/Scripts/dialog.js"></script>
+<script type="text/javascript" src="/CitizenAccess/Scripts/ACCELAGRIDVIEW_JS.js"></script>
+<script type="text/javascript" src="/CitizenAccess/Scripts/Validation.js"></script>
+<script type="text/javascript" src="/CitizenAccess/WebResource.axd?d=7LxopKiXSuWAX9MKXgwV1J345MtroiME094uQau0BtO3AssRughundXDo6z8K9jlCcX5HZVyEFizGlR3K7QD8cW5H2dx9JqgtaYq8TIFfxkSiAT0_89PSAp5_ZsukxPB-2I0SBRHFCxkOxWdBBmMcU2rytrV6ZY2m2hx4j8NMzQ1&amp;t=635391449560000000"></script>
+<script type="text/javascript" src="/CitizenAccess/WebResource.axd?d=SRVj47mRPAAwQflZ2BR8suaQKp6ShQVjnc6SwzwqY008pfikmaFj9bzOXhR-27yHWAdXI2wLXe0vxCIkPve3t5J3PmPUqP9Fa2pL23bpXRj4dbkri_rcb6re8UREAO1EmAxqvn0tGRBeuzapD_tbAgPFzfXQZK75H_HehQlyibg1&amp;t=635391449560000000"></script>
+<script type="text/javascript" src="/CitizenAccess/WebResource.axd?d=wc1KEivoRi2kl7dkHUHaAyEaSj7iU3KMsCNhBPoHZJR8FfioaqZk3uICBruFp-pnG3Z6UBXV-SUnM3-xu7mmSkTSbK7NyIRj0_EVGip9RMsMUFevm-MCz7Xj8k2YW5YtzRIuwNJQn1zNfzAF315hQg2&amp;t=635391449560000000"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=qzNMKllTr3qnAQWj6ZMQHiiTnpnWvfIJsBiVUB4lsZvlE35uSJmZAIk9qM4GFqPD4-cTYiTzrL2WAK_stIDQ0GOZTVNcjh75s1BXhFPjledpkcuGw7bWu1WZN9s4mbU2eYwGSwLQYbYlv-WpDzFVbWMRMP36DVTtoVID-LCYj8E1&amp;t=ffffffffd1fec354"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=nfBMb3tX_A344LPHKosvGnzerJl7-m28dRyb8_NBbTa2IDVTRsKAtpD0CZRi_YwQfjj3KjvZE061YqVEU53cybgCqzkyKq_8vBsiHJ5ANFVC4yttrPe_AFBLrbGN21SyQWqtNIh1Zx4BmZygIlrrCQY3hMifoR3QoMS4az7TTU41&amp;t=5f9d5645"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=sYTJ394CsMqejABjIOVqRzSrpQdyzFKalPs-aa1QjgGPxnf_639gT5w6zvsB1Y5xPEcb5YbztCuKJl-kTtSq0BvWkbSNsrM9Fi9JO90A9xEM1Mq1cGU-cPdM5lej11lbStd1e3BPbM0d2F_hMGHrDyu3yttRv_a9XBZs5Qyu39uHYrLjb2VFLhHROusfpuP00&amp;t=5f9d5645"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=syyrcGll4LLJyL63vStMYv-tVtXTKuPgI6Qim5s7_ZMlZgGHM6-0rQ2Xt3dWMllkzvxrt_AFYaSyVVJkqDc_whoN-gRVeLIpbq9Zdetp8IeNK5GwGrqkgKnCw9pMNfSkPWQphr25zMZbFrg8cyjU94ubHtf1Yvp1qZDs7K8wzAo1&amp;t=ffffffffe525b3b7"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=MRpJuM0OHhAncDvdPTNCuns7TgDGE7e-Njw58q3vUsIZNWhXO90ao7KesjXwF6ykxcVb_boCzdOPNLzbsgyZMtN_x7j66mwXXAgp7KpGthTNrhh1_fwLIOD3GrQgR3msyj1VTJCy3LJ0hj1-DNjSlVW08anQ7taZTZKM8Ps8pcU1&amp;t=ffffffffe525b3b7"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=uFIBKAlBZPhY5R3jVkBJwpe0aXeB7gEpHhaghQIdEm0BSUfJF8yOZLRz18mjEkA14zvfMvpoo45P10VaTzcPBfHpe908yzL5l1ry2WssDOM9eIjrzFq7QccEfXWr51H1kwEsO7y8Zy4Qm-RN-_6uY6LOimmoPyMgNz5b_hNobRA1&amp;t=ffffffffe525b3b7"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=f7qCenO9BjEHAGOiLrO9BlTSglQSweRYEtHTtMcbi2lzgFnXUUl6CoOb1zCprcATmtnWpoIac5uQVyMwOjZNU7wBOqYQHJfCQERHsOuVKB8h_bKA1twp5MZWeu65NIi5Uu_BJMPhOTuA5_k6WKB1iovVwp_vn-yB8t43425QugA1&amp;t=ffffffffe525b3b7"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=6Hyrlza1fqCzqCpF0MM_vYJowTurlu8PZg-86u5ORe1OA7pqGYQaaP_970K05i8gzyAEpby4JlhdTlVbxBwD_cNwZ9Rz2zmJxolZF_UoYRRrPfZWFXssnUn5xuPGi0KX62rSHFRlY8ld6ktT8goS5pdj-5Y8blI9vFcv5Fe9ZAY1&amp;t=ffffffffe525b3b7"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=kWvgR3f-P2Xz2Ls1ZsCmYtTLTf8_M2CMUihZ7sM90r7NZhrBmmNgNoItfTsK6L96JoaOs7eUVfZF03LsRR1Q1KnmhlZ-0RQOWMidZ5IM4Bs9k8w6s3pc6IDHILS1IR0x5iLlfs713b6WPqiPKr-T6odLAkfkllTc_SqRYrt8fgA1&amp;t=ffffffffe525b3b7"></script>
+<script type="text/javascript" src="/CitizenAccess/ScriptResource.axd?d=W_0F2to80sjqaNyezwRxGAHIlqjHRkOV__xmrmH0hYFzyZxNICJHyRE0Jr2FTstXVLixoZuTNRh6VYFN_cei5Cnjm5fTXcM3w67utAj5v5ufNCs3A-8oLjyodgXSTnDlUcV2DafyNQVxZNI2idNo1zpLlQ4ni3dXFCMEXa40wVG-o_-mwT4yowR9tBH_2MxAih33qBy7zyV16634P5n7cw2&amp;t=17f03ffe"></script>
+<script type="text/javascript" src="../WebService/AnnouncementService.asmx/js"></script>
+<script type="text/javascript">
+//&lt;![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+GetContactAddressUsedInDailyAsPrimary:function(contactAddressID,agencyCode,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetContactAddressUsedInDailyAsPrimary',false,{contactAddressID:contactAddressID,agencyCode:agencyCode},succeededCallback,failedCallback,userContext); },
+ClearUIData:function(serializedUIDataTypes,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ClearUIData',false,{serializedUIDataTypes:serializedUIDataTypes},succeededCallback,failedCallback,userContext); },
+SetAccessibilityCookie:function(isEnableAccessibility,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SetAccessibilityCookie',false,{isEnableAccessibility:isEnableAccessibility},succeededCallback,failedCallback,userContext); },
+DisplayFeeNoPaid:function(pageNum,moduleName,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DisplayFeeNoPaid',false,{pageNum:pageNum,moduleName:moduleName},succeededCallback,failedCallback,userContext); },
+DisplayFeePaid:function(pageNum,moduleName,reportName,receiptNbr,reportID,displayReceiptReport,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DisplayFeePaid',false,{pageNum:pageNum,moduleName:moduleName,reportName:reportName,receiptNbr:receiptNbr,reportID:reportID,displayReceiptReport:displayReceiptReport},succeededCallback,failedCallback,userContext); },
+GetBuildCapTree:function(moduleName,isShowAll,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetBuildCapTree',false,{moduleName:moduleName,isShowAll:isShowAll},succeededCallback,failedCallback,userContext); },
+GetProcessingData:function(agencyCode,moduleName,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetProcessingData',false,{agencyCode:agencyCode,moduleName:moduleName},succeededCallback,failedCallback,userContext); },
+GetSSOLink:function(agencyCode,providerNbr,userExamId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'GetSSOLink',false,{agencyCode:agencyCode,providerNbr:providerNbr,userExamId:userExamId},succeededCallback,failedCallback,userContext); },
+HasWrokflowRestricted:function(examNumber,moduleName,status,action,pageUrl,objectTargetID,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'HasWrokflowRestricted',false,{examNumber:examNumber,moduleName:moduleName,status:status,action:action,pageUrl:pageUrl,objectTargetID:objectTargetID},succeededCallback,failedCallback,userContext); },
+DeleteExamination:function(agencyCode,capId1,capId2,capId3,examNbr,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DeleteExamination',false,{agencyCode:agencyCode,capId1:capId1,capId2:capId2,capId3:capId3,examNbr:examNbr},succeededCallback,failedCallback,userContext); },
+Post2SocialMedia:function(moduleName,actionSource,actionType,entityType,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'Post2SocialMedia',false,{moduleName:moduleName,actionSource:actionSource,actionType:actionType,entityType:entityType},succeededCallback,failedCallback,userContext); },
+ResetReady2ScheduleExamiation:function(dailyExamNumber,moduleName,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ResetReady2ScheduleExamiation',false,{dailyExamNumber:dailyExamNumber,moduleName:moduleName},succeededCallback,failedCallback,userContext); },
+AddToShoppingCart:function(moduleName,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'AddToShoppingCart',false,{moduleName:moduleName},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) { PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { return PageMethods._staticInstance.get_path(); }
+PageMethods.set_timeout = function(value) { PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_enableJsonp = function(value) { PageMethods._staticInstance.set_enableJsonp(value); }
+PageMethods.get_enableJsonp = function() { return PageMethods._staticInstance.get_enableJsonp(); }
+PageMethods.set_jsonpCallbackParameter = function(value) { PageMethods._staticInstance.set_jsonpCallbackParameter(value); }
+PageMethods.get_jsonpCallbackParameter = function() { return PageMethods._staticInstance.get_jsonpCallbackParameter(); }
+PageMethods.set_path("CapDetail.aspx");
+PageMethods.GetContactAddressUsedInDailyAsPrimary= function(contactAddressID,agencyCode,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetContactAddressUsedInDailyAsPrimary(contactAddressID,agencyCode,onSuccess,onFailed,userContext); }
+PageMethods.ClearUIData= function(serializedUIDataTypes,onSuccess,onFailed,userContext) {PageMethods._staticInstance.ClearUIData(serializedUIDataTypes,onSuccess,onFailed,userContext); }
+PageMethods.SetAccessibilityCookie= function(isEnableAccessibility,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SetAccessibilityCookie(isEnableAccessibility,onSuccess,onFailed,userContext); }
+PageMethods.DisplayFeeNoPaid= function(pageNum,moduleName,onSuccess,onFailed,userContext) {PageMethods._staticInstance.DisplayFeeNoPaid(pageNum,moduleName,onSuccess,onFailed,userContext); }
+PageMethods.DisplayFeePaid= function(pageNum,moduleName,reportName,receiptNbr,reportID,displayReceiptReport,onSuccess,onFailed,userContext) {PageMethods._staticInstance.DisplayFeePaid(pageNum,moduleName,reportName,receiptNbr,reportID,displayReceiptReport,onSuccess,onFailed,userContext); }
+PageMethods.GetBuildCapTree= function(moduleName,isShowAll,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetBuildCapTree(moduleName,isShowAll,onSuccess,onFailed,userContext); }
+PageMethods.GetProcessingData= function(agencyCode,moduleName,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetProcessingData(agencyCode,moduleName,onSuccess,onFailed,userContext); }
+PageMethods.GetSSOLink= function(agencyCode,providerNbr,userExamId,onSuccess,onFailed,userContext) {PageMethods._staticInstance.GetSSOLink(agencyCode,providerNbr,userExamId,onSuccess,onFailed,userContext); }
+PageMethods.HasWrokflowRestricted= function(examNumber,moduleName,status,action,pageUrl,objectTargetID,onSuccess,onFailed,userContext) {PageMethods._staticInstance.HasWrokflowRestricted(examNumber,moduleName,status,action,pageUrl,objectTargetID,onSuccess,onFailed,userContext); }
+PageMethods.DeleteExamination= function(agencyCode,capId1,capId2,capId3,examNbr,onSuccess,onFailed,userContext) {PageMethods._staticInstance.DeleteExamination(agencyCode,capId1,capId2,capId3,examNbr,onSuccess,onFailed,userContext); }
+PageMethods.Post2SocialMedia= function(moduleName,actionSource,actionType,entityType,onSuccess,onFailed,userContext) {PageMethods._staticInstance.Post2SocialMedia(moduleName,actionSource,actionType,entityType,onSuccess,onFailed,userContext); }
+PageMethods.ResetReady2ScheduleExamiation= function(dailyExamNumber,moduleName,onSuccess,onFailed,userContext) {PageMethods._staticInstance.ResetReady2ScheduleExamiation(dailyExamNumber,moduleName,onSuccess,onFailed,userContext); }
+PageMethods.AddToShoppingCart= function(moduleName,onSuccess,onFailed,userContext) {PageMethods._staticInstance.AddToShoppingCart(moduleName,onSuccess,onFailed,userContext); }
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" &amp;&amp; ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]&gt;
+</script>
+
+<div>
+
+	<input type="hidden" value="ABB14AD5" id="__VIEWSTATEGENERATOR" name="__VIEWSTATEGENERATOR" />
+</div>
+        <script type="text/javascript">
+//&lt;![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', ['tctl00$HeaderNavigation$panButton','','tctl00$PlaceHolderMain$addForDetailPage$updatePanelAdd','','tctl00$PlaceHolderMain$workLocation$updatePanel','','tctl00$PlaceHolderMain$PermitDetailList1$updatePanel','','tctl00$PlaceHolderMain$processInstruction$workFlowProcess','','tctl00$UpdatePanel4Expression',''], [], [], 1800, 'ctl00');
+//]]&gt;
+</script>
+
+        <div class="aca_wrapper">
+        <div style="width:80em;margin:0 auto;">
+            
+<script type="text/javascript" src="/CitizenAccess/Scripts/Announcement.js"></script>
+<script type="text/javascript" language="javascript">
+
+    function RedirectTo(url) {
+        location.href = '/CitizenAccess/' + url;
+        return false;
+    }
+
+    function showTabPropertyPanel(navBar) {
+        parent.LoadTabInfo(navBar);
+        parent.LoadEastPanelTitle(2);
+    }
+
+    function updateCartNumber(cartNumber) {
+        $get("ctl00_HeaderNavigation_lblShoppingCart").innerHTML = cartNumber;
+    }
+
+    // hide report link and report arrow if no reports available.
+    function hideReportLink(hasLogin) {
+        var reportLinkId = hasLogin ? 'reportLink2' : 'reportLink';
+
+        $get(reportLinkId).style.display = 'none';
+    }
+
+    var menu;
+    var reportMenuTimeOutId;
+    var menuId;
+    var isRTL = false;   // in Arabic, it's true
+
+    // bind reports menu
+    function bindReports(reports, hasLogin, reportLabel) {
+        if ($.global.isAdmin || typeof (reports) == "undefined" || reports == null) {
+            return;
+        }
+
+        var targetId;
+        //var isRTL = false;   // in Arabic, it's true
+
+        if (!hasLogin) {
+            menuId = 'reportList';
+            targetId = 'reportLink';
+            $get('ctl00_HeaderNavigation_lblReports').innerHTML = reportLabel;
+        }
+        else {
+            menuId = 'reportList2';
+            targetId = 'reportLink2';
+            $get('ctl00_HeaderNavigation_lblReports2').innerHTML = reportLabel;
+        }
+
+        if ('False' == 'True') {
+            isRTL = true;
+        }
+
+        var prop = [['isRTL', isRTL], ['align', 'right'], ['menuId', menuId], ['targetId', targetId], ['sign', 'report_menu']];
+        var items = reports;
+        var events = [[['eventType', 'click'], ['func', openReport]]];
+
+        menu = new Menu(items, prop, events);
+    }
+
+    // when clicking report link, show report list and set time out 
+    function showReports() {
+        CheckAndSetNoAsk();
+        if (menu == undefined) return;
+        $get(menuId).style.display = 'block';
+        menu.showMenu();
+
+        hideReportByTimer();
+
+        //when click report link or a report, don't need pop up the query window.
+        SetNotAskWhenClick();
+    }
+
+    if ($.global.isAdmin == false &amp;&amp; 'True'.toLowerCase() == 'true') {
+        if ('5' != null &amp;&amp; '5' != '') {
+            setInterval("ShowAnnouncementByTimer()", '5' * 60000);
+        }
+        else {
+            setInterval("ShowAnnouncementByTimer()", 5*60000);
+        }
+    }
+
+    function hideReportByTimer() {
+        clearTimeout(reportMenuTimeOutId);
+        reportMenuTimeOutId = null;
+        reportMenuTimeOutId = setTimeout(hideReport, 3000);
+    }
+
+
+    function SetFocusIn() {
+        clearTimeout(reportMenuTimeOutId);
+        reportMenuTimeOutId = null;
+    }
+
+    function SetBlurOut() {
+        hideReportByTimer();
+    }
+
+    function SetNotAskWhenClick() {
+        if (typeof (SetNotAsk) != 'undefined') {
+            SetNotAsk();
+        }
+    }
+
+    function onMouseOver() {
+        if (menu) {
+            menu.showMenu();
+            clearTimeout(reportMenuTimeOutId);
+            reportMenuTimeOutId = null;
+        }
+    }
+
+    function onMouseOut() {
+        var e = getEvent();
+        var el = $get(menuId);
+        var target = e.target || e.srcElement;
+        var relatedTarget = e.relatedTarget || e.toElement;
+
+        if (relatedTarget == undefined) {
+            return;
+        }
+        //closeMenu();
+        clearTimeout(reportMenuTimeOutId);
+        reportMenuTimeOutId = null;
+        reportMenuTimeOutId = setTimeout(hideReport, 700);
+    }
+
+    var isMultiWindow = false;
+    var url;
+
+    function openReport(e) {
+        var obj = e.srcElement ? e.srcElement : e.target;
+        if (obj.nodeName != "A")  // if click img or space, don't open parameter window
+        {
+            return;
+        }
+        isMultiWindow = this.isMultiWindow;
+        url = this.url;
+        // do post back for getting the latest cap ids.
+        __doPostBack('ctl00_HeaderNavigation_btnPostForReport');
+    }
+
+    function openParamWin(altIDs) {
+        var IDs = altIDs;
+        var idStr = '';
+        // the requried number of parameter windows. 
+        // If single window or no alt ids, open a window. 1 means one window
+        var openNumbers = (IDs.length &gt; 0 &amp;&amp; isMultiWindow) ? IDs.length : 1;
+
+        // if single window, concat the cap alt ids with ",".
+        if (IDs.length &gt; 0 &amp;&amp; openNumbers == 1) {
+            for (var i = 0; i &lt; IDs.length; i++) {
+                idStr += IDs[i] + ",";
+            }
+            idStr = idStr.substring(0, idStr.length - 1);  // remove the last ","         
+        }
+
+        var paramWindows = new Array(); // use the array to store the opened windows.
+
+        for (var i = 0; i &lt; openNumbers; i++) {
+            var newUrl = url;
+            if (IDs.length &gt; 0) {
+                var id = openNumbers &gt; 1 ? IDs[i] : idStr;  // if multiple window, pass each id to each window.
+                //newUrl = url + "&amp;ID=" + id;
+                var appendUrl = String.format("&amp;{0}={1}", 'ID', id)
+                newUrl = url + appendUrl;
+            }
+
+            var iLeft = 200;
+            if (i &gt; 0) {
+                // resize the window. Set it padding 50px to the previous window. 
+                // if the open window is more than 5(i&gt;3), set it overlapped the previous window(i=3).
+                var m = i &gt; 3 ? 3 : i - 1;
+                var preWinLeft = paramWindows[m].screenLeft == undefined ?
+                    paramWindows[m].screenX : paramWindows[m].screenLeft;  //FF use screeX
+
+                iLeft = isRTL ? preWinLeft - 50 : preWinLeft + 50;  //if in Arabic, set the next window padding right the previous one.
+            }
+
+            var parameters =
+            String.format("top=200,left={0},height=600,width=800,status=yes,toolbar=no,menubar=no,location=no,scrollbars=yes", iLeft);
+
+            paramWindows[i] = window.open(newUrl, "_blank", parameters);
+        }
+
+        hideReport();
+
+        SetNotAskWhenClick();
+    }
+
+    function hideReport() {
+        $GetObject(menuId).style.display = 'none';
+    } 
+</script>
+
+<div class="ACA_Announcement_Window_Detail_Overlayer" id="overlayAnnouncement"></div>
+<div class="ACA_Hide PopUpDlg ACA_Announcement_Window" id="winAnnouncement">
+  
+    <a title="This is an announcement popup window." onkeydown='OverrideTabKey(event, true, "closeWinAnn")' href="#" class="NullBlock NotShowLoading" id="lnkBeginFocusAnn">
+        <img alt="" class="ACA_NoBorder" src="/CitizenAccess/app_themes/Default/assets/spacer.gif" />
+    </a> 
+     
+    <div class="ACA_Announcement_Window_Header" id="announcementWindowHeader">
+        <span id="close">
+            <span class="ACA_AlignRightOrLeft CloseImage ACA_FRight">        
+                <input type="image" title="Close" alt="Close" class="ACA_ActionIMG" src="/CitizenAccess/app_themes/Default/assets/closepopup.png" onclick="return false;" id="closeWinAnn" />
+            </span>
+        </span>
+    </div>
+    <div class="ACA_Announcement_Window_Detail">
+        <div class="ACA_Popup_Title ACA_Announcement_Title_Center" id="winAnnouncementContentTitle"></div> 
+        <div class="ACA_TabRow ACA_Line_Content"></div>
+        <div class="ACA_Announcement_Content" id="winAnnouncementContentAll"></div> 
+    </div>
+    
+    <a title="This is the end of the form. Press the Tab key to move the focus to the beginning." onkeydown='OverrideTabKey(event, false, "lnkBeginFocusAnn")' href="#" class="NullBlock NotShowLoading" id="lnkEndFocusAnn">
+        <img alt="" class="ACA_NoBorder" src="/CitizenAccess/app_themes/Default/assets/spacer.gif" />
+    </a>
+</div>
+
+<!-- Start HeadNavigation Block -->
+<div style="height:2px;clear:both;width:100%;" id="ctl00_HeaderNavigation_hsLine"></div>
+<div>
+    <div class="ACA_NaviTitle">
+        <div class="ACA_RegisterLogin ACA_RegisterLogin_FontSize">
+            <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tbody><tr valign="bottom">
+                    <td>
+                        
+                        <div id="ctl00_HeaderNavigation_beforeLogin">
+                            <!--Login link-->
+                            <div class="ACA_FRight">
+                                <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+                                    <tbody><tr>
+                                        <td>
+                                            <a id="ctl00_HeaderNavigation_btnLogin" href="/CitizenAccess/Login.aspx">
+                                                <span class="ACA_Body_Text ACA_Body_Text_FontSize" id="ctl00_HeaderNavigation_lblLogin">Login</span>
+                                            </a>
+                                        </td>
+                                        <td class="ACA_TabRow_Line">
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <!--Login link-->
+                            <!--Report-->
+                            <div class="ACA_FRight">
+                                <div>
+                                    <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+                                        <tbody><tr id="reportLink">
+                                            <td class="ACA_TabRow_Line">
+                                                <a class="nav_more_arro NotShowLoading" onclick="showReports();" href="javascript:void(0);">
+                                                    <span id="ctl00_HeaderNavigation_lblReports">Reports (2)</span>
+                                                    <span style="display:none;" class="ACA_Body_Text ACA_Body_Text_FontSize" id="ctl00_HeaderNavigation_lblAdminReports"></span>
+                                                    <img style="border-width: 0px;" src="/CitizenAccess/app_themes/Default/assets/caret_expanded.gif" alt="Report List" />
+                                                </a>
+                                            </td>
+                                            <td class="ACA_TabRow_Line">
+                                                <span isneedencode="false" id="ctl00_HeaderNavigation_reportSplit"> | </span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <div style="display: none; position: absolute; z-index: 2;">
+                                    <div onmouseout="onMouseOut();" onmouseover="onMouseOver();" class="ACA_Report_Menu ActionMenu_Link" id="reportList"><div id="report_menucontainer_0"><table border="0" cellspacing="0" cellpadding="0" role="presentation"><tbody><tr><td><span id="report_menu0"><div class="Header_h3">Reports (2):</div></span></td></tr></tbody></table></div><div id="report_menucontainer_1"><table border="0" cellspacing="0" cellpadding="0" role="presentation"><tbody><tr><td><span id="report_menu1"><a onblur="SetBlurOut();" onfocus="SetFocusIn();" href="javascript:void(0);" id="report2090" style="margin:8px;">Special Events Application</a></span></td></tr></tbody></table></div><div id="report_menucontainer_2"><table border="0" cellspacing="0" cellpadding="0" role="presentation"><tbody><tr><td><span id="report_menu2"><a onblur="SetBlurOut();" onfocus="SetFocusIn();" href="javascript:void(0);" id="report2021" style="margin:8px;">Upcoming Special Events</a></span></td></tr></tbody></table></div></div>
+                                </div>
+                            </div>
+                            <!--Report-->
+                            <!--Register link-->
+                            <div class="ACA_FRight">
+                                <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+                                    <tbody><tr>
+                                        <td class="ACA_TabRow_Line">
+                                            <a id="ctl00_HeaderNavigation_btnRegister" href="/CitizenAccess/Account/RegisterDisclaimer.aspx">
+                                                <span class="ACA_Body_Text ACA_Body_Text_FontSize" id="ctl00_HeaderNavigation_lblRegister">Register for an Account</span>
+                                            </a>
+                                        </td>
+                                        <td class="ACA_TabRow_Line">
+                                            <span id="ctl00_HeaderNavigation_lblSplit2"> | </span>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                            <!--Register link-->
+                            <!--Support Accessibility-->
+                            
+                            <!--Support Accessibility-->
+                            <!--Announcement-->
+                            
+<div class="ACA_FRight">
+    <div>
+        <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+            <tbody><tr>
+                <td class="ACA_TabRow_Line">
+                    <span class="ACA_FLeft"><a id="ctl00_HeaderNavigation_ucAnnBeforeLogin_A2" href="../Announcement/AnnouncementList.aspx">
+                        <span class="ACA_Body_Text ACA_Body_Text_FontSize" id="ctl00_HeaderNavigation_ucAnnBeforeLogin_lblAnnounementLink">Announcements</span></a></span><span style="display: none" id="spanAnnouncementCount" class="ACA_FLeft"><a id="ctl00_HeaderNavigation_ucAnnBeforeLogin_A3" href="../Announcement/AnnouncementList.aspx">(<span id="announcementCount">0</span>)</a></span>
+                </td>
+                <td valign="top" class="ACA_TabRow_Line">
+                    <div style="display: none;" id="divExpandAnnouncement">
+                        <a title="Announcement List" class="nav_more_arrow NotShowLoading" onclick="OpenAnnouncementAuto(); return false;" href="javascript:void(0)" id="A4">
+                            <img src="/CitizenAccess/app_themes/Default/assets/caret_expanded.gif" alt="Announcement List" /></a>
+                    </div>
+                </td>
+                <td class="ACA_TabRow_Line">
+                    <span id="ctl00_HeaderNavigation_ucAnnBeforeLogin_lblSplitAnnouncement"> | </span>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div>
+        <div class="ACA_Anouncement_Popup_Window ACA_Report_Menu" id="divAnnouncement" style="display: none;">
+            <div class="ACA_Hide" id="announcementId"></div>
+            <div class="ACA_Hide" id="announcementContentFull">
+            </div>
+            <div class="ACA_Hide" id="announcementContentTitle">
+            </div>
+            <div class="ACA_Anouncement_Poupu_Window_Part_Height" id="announcementContentPart">No Announcement.</div>
+            <div class="ACA_Anouncement_Poupu_Window_MarkAsRead">
+                <div class="ACA_FRight" id="closeMarkAsReadOfAnnouncementBtn">
+                    <a class="ACA_LinkButton NotShowLoading" onclick="MarkAsReadOfAnnouncement(); return false;" href="javascript:void(0);">
+                        Mark as Read</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="ACA_NavBanner">
+            <span class="ACA_Page_Instruction ACA_Page_Instruction_FontSize" id="ctl00_HeaderNavigation_lblNavBanner"><font color="#0000ff"><strong><font size="3" color="#0000ff">   <br />How To Instructions</font><br /></strong></font><font color="#000000"><a target="_blank" href="http://www.indy.gov/eGov/City/DCE/Documents/2015/Creating%20an%20ACA%20Account%20user%20guide%2012-2015.pdf">Creating an ACA User Account</a><br /><a target="_blank" href="http://www.indy.gov/eGov/City/DCE/Documents/2015/ACA%20FAQs.pdf">Frequently Asked Questions</a><br /> </font></span>
+        </div>
+        
+    </div>
+    <div class="nav_bar_container">
+        <div id="ctl00_HeaderNavigation_divMenu">
+            <div id="divNaviMenu">
+                <div style="display:none;" id="divMoreTabTemplate">
+	
+</div><table style="visibility:hidden" role="presentation"><tbody><tr><td id="tdTabContainer"></td></tr></tbody></table><div class="ACA_NaviMenu" id="nav_parent_container"><span style="" id="tab_item_place_holder"><span id="span_tab_0" style="display:inline-block;">                        <table border="0" cellspacing="0" cellpadding="0" class="tab_bar_table ACA_Nowrap" tag="navbar" role="presentation">            	            <tbody><tr>            		            <td class="ACA_ItemLeft ACA_LeftOff"></td>            		                <td class="ACA_ItemCenter ACA_ItemCenter_FontSize ACA_CenterOff">                                        <div>                                            <a module="" href="javascript:void(0);" title="Home">Home</a>                                        </div>            		                </td>            		                <td class="ACA_ItemRight ACA_RightOff"></td>            	            </tr>                        </tbody></table>                    </span><span id="span_tab_1" style="display:inline-block;">                        <table border="0" cellspacing="0" cellpadding="0" class="tab_bar_table ACA_Nowrap" tag="navbar" role="presentation">            	            <tbody><tr>            		            <td class="ACA_ItemLeft ACA_LeftOff"></td>            		                <td class="ACA_ItemCenter ACA_ItemCenter_FontSize ACA_CenterOff">                                        <div>                                            <a module="Permits" href="javascript:void(0);" title="Permits and Contractors"><font style="TEXT-ALIGN: left">Permits and Contractors</font></a>                                        </div>            		                </td>            		                <td class="ACA_ItemRight ACA_RightOff"></td>            	            </tr>                        </tbody></table>                    </span><span id="span_tab_2" style="display:inline-block;">                        <table border="0" cellspacing="0" cellpadding="0" class="tab_bar_table ACA_Nowrap" tag="navbar" role="presentation">            	            <tbody><tr>            		            <td class="ACA_ItemLeft ACA_LeftOff"></td>            		                <td class="ACA_ItemCenter ACA_ItemCenter_FontSize ACA_CenterOff">                                        <div>                                            <a module="Enforcement" href="javascript:void(0);" title="Enforcement">Enforcement</a>                                        </div>            		                </td>            		                <td class="ACA_ItemRight ACA_RightOff"></td>            	            </tr>                        </tbody></table>                    </span><span id="span_tab_3" style="display:inline-block;">                        <table border="0" cellspacing="0" cellpadding="0" class="tab_bar_table ACA_Nowrap" tag="navbar" role="presentation">            	            <tbody><tr>            		            <td class="ACA_ItemLeft ACA_LeftOn"></td>            		            <td class="ACA_ItemCenter ACA_ItemCenter_FontSize ACA_CenterOn">                                    <div>                                        <a module="Licenses" href="javascript:void(0);" title="Business Licenses"><font style="TEXT-ALIGN: left">Business Licenses</font></a>                                    </div>            		            </td>            		            <td class="ACA_ItemRight ACA_RightOn"></td>            	            </tr>                        </tbody></table>                    </span></span><span id="more_tab_place_holder"><span style="display:inline-block;">
+		
+                            <table border="0" cellspacing="0" cellpadding="0" id="span_more_tab" role="presentation">
+                                <tbody><tr>
+                                    <td class="ACA_MoreItemLeft ACA_LeftOff">
+                                    </td>
+                                    <td class="ACA_MoreItemCenter ACA_CenterOff more_tab">
+                                        <a class="NotShowLoading" onblur="SetBlurOutForMore();" onfocus="onfocusMore();" href="#">
+                                            <span class="more_button font12px" module="more" id="ctl00_HeaderNavigation___divMoreTemplate_lblMoreTab">more</span>
+                                        </a>
+                                    </td>
+                                    <td style="width: 15px;" class="ACA_CenterOff">
+                                        <a title="more" class="nav_more_arrow NotShowLoading" id="moreArrowLink" onclick="CheckAndSetNoAsk();" href="javascript:void(0)">
+                                            <img style="border-width: 0px;" src="/CitizenAccess/app_themes/Default/assets/caret_arrow.gif" alt="more" /></a>
+                                    </td>
+                                    <td class="ACA_MoreItemRight ACA_RightOff">
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        
+	</span></span><div style="display:none;position:absolute;" id="divNavMenu"><div style="position:relative;top:-1px;" class="submenu" id="submenu"><ul><div class="tab_bar_menu_item"><table border="0" cellspacing="0" cellpadding="0" role="presentation"><tbody><tr><td><nobr><span id="span_tab_4" style="word-break:keep-all">                        <div class="ACA_MenuItem ACA_MenuItem_FontSize">                            <a module="Planning" href="javascript:void(0);" onblur="SetBlurOutForMore();" onfocus="SetFocusInForMore();" title="Planning / Historic Preservation"><font style="TEXT-ALIGN: left">Planning / Historic Preservation</font></a>                        </div>                    </span></nobr></td></tr></tbody></table></div><div class="tab_bar_menu_item"><table border="0" cellspacing="0" cellpadding="0" role="presentation"><tbody><tr><td><nobr><span id="span_tab_5" style="word-break:keep-all">                        <div class="ACA_MenuItem ACA_MenuItem_FontSize">                            <a module="HHC" href="javascript:void(0);" onblur="SetBlurOutForMore();" onfocus="SetFocusInForMore();" title="Health Department"><font style="TEXT-ALIGN: left">Health Department</font></a>                        </div>                    </span></nobr></td></tr></tbody></table></div></ul></div></div></div><div align="center" class="ACA_SubMenuList" id="nav_link_place_holder"><b><span id="nav_link_content"><span class="font11px" id="nav_span_links"><span id="span_link_0">                        <span style="display: inline-block;">                            <a href="javascript:void(0);">Search Cases</a>                        </span>                    </span></span></span><div style="display:none;" class="font11px" id="divLinkMenu"></div></b></div><script type="text/javascript">
+//&lt;![CDATA[
+window.__TabInit = function() {
+if(!window.NavBar_Loaded || !window.TabBar_Utils_Loaded)
+	{window.setTimeout('window.__TabInit()', 50); return; }
+
+window.__Tab = new TabBar();
+__Tab.TabItems= [['Tabs',[[['Label','Home'],['Key','HOME'],['Title','Home'],['URL','/CitizenAccess/Welcome.aspx?TabName=HOME'],['Module',],['Order',0]],[['Links',[[['Label','Search Cases'],['Key','Permits'],['Title',],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Permits&amp;TabName=Permits'],['Module',],['Order',0]],[['Label','Schedule an Inspection'],['Key','Permits'],['Title',],['URL','/CitizenAccess/Cap/CapHome.aspx?IsToShowInspection=yes&amp;module=Permits&amp;TabName=Permits'],['Module',],['Order',1]]]],['Label','&lt;FONT style="TEXT-ALIGN: left"&gt;Permits and Contractors&lt;/FONT&gt;'],['Key','Permits'],['Title','Permits and Contractors'],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Permits&amp;TabName=Permits'],['Module','Permits'],['Order',1]],[['Links',[[['Label','Search Cases'],['Key','Enforcement'],['Title',],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Enforcement&amp;TabName=Enforcement'],['Module',],['Order',0]]]],['Label','Enforcement'],['Key','Enforcement'],['Title','Enforcement'],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Enforcement&amp;TabName=Enforcement'],['Module','Enforcement'],['Order',2]],[['Links',[[['Label','Search Cases'],['Key','Planning'],['Title',],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Planning&amp;TabName=Planning'],['Module',],['Order',0]]]],['Label','&lt;FONT style="TEXT-ALIGN: left"&gt;Planning / Historic Preservation&lt;/FONT&gt;'],['Key','Planning'],['Title','Planning / Historic Preservation'],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Planning&amp;TabName=Planning'],['Module','Planning'],['Order',3]],[['Links',[[['Label','Search Cases'],['Key','HHC'],['Title',],['URL','/CitizenAccess/Cap/CapHome.aspx?module=HHC&amp;TabName=HHC'],['Module',],['Order',0]]]],['Label','&lt;FONT style="TEXT-ALIGN: left"&gt;Health Department&lt;/FONT&gt;'],['Key','HHC'],['Title','Health Department'],['URL','/CitizenAccess/Cap/CapHome.aspx?module=HHC&amp;TabName=HHC'],['Module','HHC'],['Order',4]],[['Links',[[['Label','Search Cases'],['Key','Licenses'],['Title',],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Licenses&amp;TabName=Licenses'],['Module',],['Order',0]]]],['Label','&lt;FONT style="TEXT-ALIGN: left"&gt;Business Licenses&lt;/FONT&gt;'],['Key','Licenses'],['Title','Business Licenses'],['URL','/CitizenAccess/Cap/CapHome.aspx?module=Licenses&amp;TabName=Licenses'],['Module','Licenses'],['Order',5]]]]];
+__Tab.ItemTemplate='                        &lt;table role=\'presentation\' tag="navbar" border="0" cellspacing="0" cellpadding="0" class=\'tab_bar_table ACA_Nowrap\'&gt;            	            &lt;tr&gt;            		            &lt;td class="ACA_ItemLeft ACA_LeftOff"&gt;&lt;/td&gt;            		                &lt;td class="ACA_ItemCenter ACA_ItemCenter_FontSize ACA_CenterOff"&gt;                                        &lt;div&gt;                                            &lt;a  title="## getItem(\'Title\') ##" href="javascript:void(0);" module="## getItem(\'Module\') ##"&gt;## getItem(\'Label\') ##&lt;/a&gt;                                        &lt;/div&gt;            		                &lt;/td&gt;            		                &lt;td class="ACA_ItemRight ACA_RightOff"&gt;&lt;/td&gt;            	            &lt;/tr&gt;                        &lt;/table&gt;                    ';
+__Tab.SelectedItemTemplate='                        &lt;table role=\'presentation\' tag="navbar" border="0" cellspacing="0" cellpadding="0" class=\'tab_bar_table ACA_Nowrap\'&gt;            	            &lt;tr&gt;            		            &lt;td class="ACA_ItemLeft ACA_LeftOn"&gt;&lt;/td&gt;            		            &lt;td class="ACA_ItemCenter ACA_ItemCenter_FontSize ACA_CenterOn"&gt;                                    &lt;div&gt;                                        &lt;a title="## getItem(\'Title\') ##" href="javascript:void(0);" module="## getItem(\'Module\') ##"&gt;## getItem(\'Label\') ##&lt;/a&gt;                                    &lt;/div&gt;            		            &lt;/td&gt;            		            &lt;td class="ACA_ItemRight ACA_RightOn"&gt;&lt;/td&gt;            	            &lt;/tr&gt;                        &lt;/table&gt;                    ';
+__Tab.DropDownMenuTemplate='                        &lt;div class="ACA_MenuItem ACA_MenuItem_FontSize"&gt;                            &lt;a title=\'## getItem(\'Title\') ##\' onfocus="SetFocusInForMore();" onblur="SetBlurOutForMore();"  href="javascript:void(0);"  module="## getItem(\'Module\') ##"&gt;## getItem(\'Label\') ##&lt;/a&gt;                        &lt;/div&gt;                    ';
+__Tab.LinkItemTemplate='                        &lt;span style="display: inline-block;"&gt;                            &lt;a title=\'## getItem(\'Title\') ##\'  href="javascript:void(0);"&gt;## getItem(\'Label\') ##&lt;/a&gt;                        &lt;/span&gt;                    ';
+var tab_properties = [['IsFirstLoad',1],['LinkAlign','center'],['CurrentTabName','licenses'],['DefaultTabName','home'],['CurrentTabIndex',0]];
+window.setProperties(__Tab, tab_properties);
+__Tab.preRender();
+}
+
+__TabInit();
+
+//]]&gt;
+</script>
+
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="ctl00_HeaderNavigation_hdnShoppingCartItemNumber" name="ctl00$HeaderNavigation$hdnShoppingCartItemNumber" />
+<input type="hidden" value="Y" id="ctl00_HeaderNavigation_hdnShowReportLink" name="ctl00$HeaderNavigation$hdnShowReportLink" />
+<div id="ctl00_HeaderNavigation_panButton">
+	
+        <a style="display: none" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$HeaderNavigation$btnPostForReport&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true));var p = new ProcessLoading();p.showLoading(true);;if (typeof(myValidationErrorPanel)!='undefined') myValidationErrorPanel.printErrors();" tabindex="-1" id="ctl00_HeaderNavigation_btnPostForReport"></a>
+    
+</div>
+<!-- End HeadNavigation Block -->
+
+<script type="text/javascript" language="javascript">
+
+    var objTimeout = null;
+
+    function hideMenu() {
+        clearTimeout(objTimeout);
+        objTimeout = null;
+        objTimeout = setTimeout(DelayShowMenu, 3000);
+    }
+
+    function SetFocusInForCollection() {
+        clearTimeout(objTimeout);
+        objTimeout = null;
+    }
+
+    function SetBlurOutForCollection() {
+        hideMenu();
+    }
+
+    function displayMenu() {
+        clearTimeout(objTimeout);
+        objTimeout = null;
+    }
+
+    function DelayShowMenu() {
+        collection_menu.hideMenu();
+    }
+
+    function showMenu(target) {
+        CheckAndSetNoAsk();
+        if (collection_menu == undefined) return;
+        collection_menu.showMenu();
+        hideMenu();
+    }
+
+    var objTimerForMore = null;
+    function onfocusMore(obj) {
+        window.popUp(window.__Tab.dropDownMenu.element, $get('span_more_tab'),$.global.isRTL);
+        //$("#divNavMenu").find('a').get(0).focus();
+        $("#moreArrowLink").attr("tabindex", "-1");
+        clearTimeout(objTimerForMore);
+        objTimerForMore = null;
+    }
+
+    function onfocusMoreLink() {
+        window.popUp($get('divLinkMenu'), $get('nav_span_more_link'), $.global.isRTL);
+    }
+
+    function SetFocusInForMore() {
+        clearTimeout(objTimerForMore);
+        objTimerForMore = null;
+    }
+
+    function SetBlurOutForMore() {
+        clearTimeout(objTimerForMore);
+        objTimerForMore = null;
+        objTimerForMore = setTimeout(onblurMore, 700);
+    }
+
+    function onblurMore() {
+        window.__Tab.moreTab.closeMenu(window.__Tab.dropDownMenu);
+    }
+
+    //The method defined in Bage page.
+    function SupportAccessibility(obj) {
+        if (obj) {
+            PageMethods.SetAccessibilityCookie(obj.checked, RefreshPage);
+        }
+    }
+
+    // When check/uncheck Accessibility Support, refresh the whole page.
+    function RefreshPage() {
+        window.parent.location.reload(true);
+    }
+
+    var OnAnnouncementList = 'False';
+
+    $(document).ready(function () {
+        if ($.global.isAdmin == false &amp;&amp; 'True'.toLowerCase() == 'true') {
+            ShowAnnouncementInit();
+        }
+    });
+</script>
+            <a tabindex="-1" href="#messageSpan" id="goTOMessage"></a>
+            <div class="ACA_Content ACA_Hide">
+            <!-- The h1 element is only for WCAG2.0 rule 1.1.1 H42 -->
+            <h1 class="ACA_Hide">Message Bar</h1>
+            <span name="messageSpan" id="messageSpan"></span>
+            </div>
+            <script language="javascript" type="text/javascript">
+                //Init validation error panel for form validation.
+                if (typeof (InitValidationErrorPanel) == "function") {
+                    $(document).bind("ready", InitValidationErrorPanel);
+                }
+            </script>
+            <div>
+                <a tabindex="-1" id="FirstAnchorInACAMainContent" name="FirstAnchorInACAMainContent"></a>
+                <span id="ErrorList1"></span>
+                
+    
+    <!-- Facebook js reg, & position div-->
+    <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe frameborder="0" name="fb_xdm_frame_http" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="http://staticxx.facebook.com/connect/xd_arbiter.php?version=42#channel=f1c9810721fc5c6&amp;origin=http%3A%2F%2Fpermitsandcases.indy.gov"></iframe><iframe frameborder="0" name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="https://staticxx.facebook.com/connect/xd_arbiter.php?version=42#channel=f1c9810721fc5c6&amp;origin=http%3A%2F%2Fpermitsandcases.indy.gov"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+    <script type="text/javascript">
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+    </script>
+    
+    <div class="ACA_Area_CapDetail">
+        
+        <script src="../Scripts/pagination.js" type="text/javascript"></script>
+        <script src="../Scripts/textCollapse.js" type="text/javascript"></script>
+        <script src="../Scripts/MyCollectionMethods.js" type="text/javascript"></script>
+        <script src="../Scripts/RelatedRecordsTree.js" type="text/javascript"></script>
+        <script src="../Scripts/ShoppingCartMethods.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            
+            //document.forms["aspnetForm"].method="post";
+            //document.forms["aspnetForm"].enctype="multipart/form-data";
+            var CTreeTop='/CitizenAccess/app_themes/Default/assets/caret_collapsed.gif';
+            var ETreeTop='/CitizenAccess/app_themes/Default/assets/caret_expanded.gif';
+            var CTreeMiddle='/CitizenAccess/app_themes/Default/assets/minus_collapse.gif';
+            var ETreeMiddle='/CitizenAccess/app_themes/Default/assets/plus_expand.gif';
+            var imgCollapsed = '/CitizenAccess/app_themes/Default/assets/caret_collapsed.gif';
+            var imgExpanded = '/CitizenAccess/app_themes/Default/assets/caret_expanded.gif';
+            var altCollapsed = 'Collapse'; 
+            var altExpanded = 'Expand';
+            var norecords = 'No records found.';
+            var IsFirstLoadProcessInfo = true;            
+            var IsFirstLoadFeeListInfo = true;
+            var IsFirstLoadNav=true;
+            var IsFirstLoadRelatedCap = true;
+            var IsShowAllRelatedRecord = false;
+
+            function print_onclick(url)
+            {
+                hideMessage();
+	            var a=window.open(url, "_blank","top=200,left=200,height=600,width=800,status=yes,toolbar=1,menubar=no,location=no,scrollbars=yes");
+            }
+            
+           function expandAttachment()
+           {
+                var div=document.getElementById("divNewAttachment");
+                var lnk = document.getElementById("lnkUploadNewAttachment");
+
+                div.style.display="block";
+                lnk.className = "ACA_Content_Expand";
+           }                    
+
+            var timeoutExpandAttachment;
+           
+            function ExpandAttachmentSection() {
+                timeoutExpandAttachment = setTimeout(ExpandAttachmentSectionDelay, 1000);
+            }
+
+            function  ExpandAttachmentSectionDelay() {
+                var iframe = $("[id$=iframeAttachmentList]")[0];
+                
+                if (typeof (iframe) == "undefined" || iframe == null || iframe.contentWindow.document.body == null) {
+                    return;
+                }
+                
+                // set the attachmentlist iframe's width to its container.
+                iframe.width = $('#ctl00_PlaceHolderMain_divAttachmentContainer').width();
+                var collapse = 'collapse'; 
+                var readMore = 'read more';
+                
+                iframe.contentWindow.RebuildEllipsis({readMore:readMore,collapse:collapse,containerId:iframe.id});
+                var bHeight = iframe.contentWindow.document.body.scrollHeight;
+                var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+                var height = Math.max(bHeight, dHeight);
+                iframe.height = height;
+
+                clearTimeout(timeoutExpandAttachment);
+            }
+
+            // expand the workflow section
+            function ExpandWorkflowSection() {
+                if (IsFirstLoadProcessInfo) {
+                    $('#divProcessLoading').show();
+                    var moduleName = "Licenses";
+                    var agencyCode = "INDY";
+                    PageMethods.GetProcessingData(agencyCode, moduleName, callbackProcessingInfo);
+                }
+            }
+            
+            function callbackProcessingInfo(result) {
+                IsFirstLoadProcessInfo = false;
+                $('#divProcessLoading').hide();
+
+                var divProcess=document.getElementById("divProcessingTable");
+                if(result==""){
+                    divProcess.innerHTML="&lt;span class=\"ACA_CapDetail_NoRecord font12px\"&gt;"+norecords+"&lt;/span&gt;";
+                }else{
+                    divProcess.innerHTML = result;
+                } 
+            }
+            
+	        function adjustMargin()
+            {
+                var container = document.getElementById("buttonsContainer");
+
+               var lis= container.getElementsByTagName("Li");
+ 
+               for(var i = 0;i&lt;lis.length;i++)
+               {
+                    if(lis[i].childNodes[0].innerHTML == "")
+                        lis[i].style.margin = "0px";
+               }
+            }
+
+           function feesSection_report_onclick(url)
+           {
+                hideMessage();
+	            var a=window.open(url, "_blank","top=200,left=200,height=600,width=800,status=yes,toolbar=1,menubar=no,location=no,scrollbars=yes");
+	       } 
+
+           function setObjShowOrHide(obj, isShow) {
+               if (obj &amp;&amp; typeof (obj) == "string") {
+                   obj = document.getElementById(obj);
+               }
+               
+               if (obj &amp;&amp; obj.innerHTML) {
+                   if (isShow) {
+                       obj.className = obj.className.replace("ACA_Hide", "ACA_Section_Instruction ACA_Section_Instruction_FontSize");
+                   }
+                   else {
+                       obj.className = obj.className.replace("ACA_Section_Instruction ACA_Section_Instruction_FontSize", "ACA_Hide");
+                   }
+               }
+           }
+
+            var hasFee = false;
+            function ExpandFeeSection() {
+                // show the loading message first
+                $("#divFeeListPaid").show();
+
+                if (IsFirstLoadFeeListInfo) {
+                    PageMethods.DisplayFeeNoPaid("1", "Licenses", callbackFeeNoPaidDetailInfo);
+                    PageMethods.DisplayFeePaid("1", "Licenses", "", "0", "0", "False", callbackFeePaidDetailInfo);
+                }
+
+                if (!IsFirstLoadFeeListInfo &amp;&amp; !hasFee) {
+                    $("#divFeeList").hide();
+                    $("#divFeeListPaid").hide();
+                    $("#divNoRecord").show();
+                }
+            }
+
+           function callbackFeeNoPaidDetailInfo(result)
+           {
+                IsFirstLoadFeeListInfo=false;
+                var divFee=document.getElementById("divFeeList");
+                var divNoRecord=document.getElementById("divNoRecord");
+                divFee.innerHTML = result;
+                
+                if(result=="")
+                { 
+                     divFee.style.height="0px";
+                     divFee.style.display="none";
+                     hasFee = false;                     
+                }
+                else
+                {
+                    divFee.style.display="";
+                    hasFee = true;
+                }
+                
+                divNoRecord.style.display = "none";
+           } 
+           
+           function callbackFeePaidDetailInfo(result)
+           {
+                IsFirstLoadFeeListInfo=false;
+                var divFeePaid=document.getElementById("divFeeListPaid");
+                var divFee=document.getElementById("divFeeList");
+                var divNoRecord=document.getElementById("divNoRecord");
+                divFeePaid.className=""; 
+                divFeePaid.innerHTML = result;
+                if(result=="")
+                { 
+                    if(hasFee)
+                    {
+                        divFeePaid.style.display="none";
+                    }
+                    else
+                    {
+                        divFeePaid.innerHTML="&lt;span class=\"ACA_CapDetail_NoRecord font12px\"&gt;"+norecords+"&lt;/span&gt;";
+                    }
+                }
+                else
+                {
+                    divFeePaid.style.display="";
+                    hasFee = true;
+                    divNoRecord.style.display = "none";
+                } 
+                
+                if(!hasFee)
+                {                 
+                    divNoRecord.innerHTML="&lt;span class=\"ACA_CapDetail_NoRecord font12px\"&gt;"+norecords+"&lt;/span&gt;";  
+                    divNoRecord.style.display = "";
+                    divFee.style.display="none";
+                    divFeePaid.style.display="none";
+                }
+           } 
+           
+           function changePage(pageNum,isPaid)
+           {
+                if(isPaid=="false")
+                {
+                    PageMethods.DisplayFeeNoPaid(pageNum, "Licenses", callbackFeeNoPaidDetailInfo);
+	            }
+	            else
+	            {
+	                PageMethods.DisplayFeePaid(pageNum, "Licenses", "", "0", "0", "False", callbackFeePaidDetailInfo); 
+	            }
+           }
+
+           function ExpandRelatedPermitSection(isReload) {
+               if (IsFirstLoadRelatedCap || isReload) {
+                   var moduleName = "Licenses";
+
+                   if (!isReload) {
+                       $("#divRelatedCapLoading").show();
+                       $("#divRelatePermitButton").show();
+                   }
+
+                   PageMethods.GetBuildCapTree(moduleName, encodeURIComponent(IsShowAllRelatedRecord), callbackCapInfo, onGererateCapTreeError);
+
+                   if (isReload) {
+                       if (encodeURIComponent(IsShowAllRelatedRecord)=="true") {
+                           $("#" + "ctl00_PlaceHolderMain_btnSwitchTreeView").html('&lt;span&gt;' + '&amp;laquo; Back to Directly Related Records' + '&lt;/span&gt;');
+                       }
+                       else {
+                           $("#" + "ctl00_PlaceHolderMain_btnSwitchTreeView").html('&lt;span&gt;' + 'View Entire Tree &amp;raquo;' + '&lt;/span&gt;');
+                       }
+                   }
+
+                   IsShowAllRelatedRecord = !(encodeURIComponent(IsShowAllRelatedRecord)=="true");
+               }
+                else {
+                    $("#divRelatedCapLoading").hide();
+                }
+            }
+
+           //Return the HTML Sql for build Cap list tree 
+           function callbackCapInfo(result)
+           {
+                IsFirstLoadRelatedCap = false;
+                $('#divRelatedCapLoading').hide();
+                
+                if(result=="")
+                { 
+                    document.getElementById("divRelatedCapTree").innerHTML ="&lt;span class=\"ACA_CapDetail_NoRecord font12px\"&gt;"+norecords+"&lt;/span&gt;";
+                }
+                else
+                {
+                    document.getElementById("divRelatedCapTree").innerHTML = result;
+                }
+
+                var p = new ProcessLoading();p.hideLoading();
+           }
+
+            function onGererateCapTreeError(err) {
+                $("#divRelatedCapTree").html('');
+                showNormalMessage(err.get_message(), 'Error');
+                $('#divRelatedCapLoading').hide();
+                var p = new ProcessLoading();
+                p.hideLoading();
+            }
+
+           function addOnlyOneCAP2Collection(obj) 
+           {
+            // This param is define in MyCollectionMethods.js, it's use for focus current link after pop up window closed.
+            addCollectionClickElement = obj;
+            var isRightOrLeft = 'False';
+            var divForAddCap2Collection  = window.document.getElementById("divForAddCap2Collection");
+            
+            if(divForAddCap2Collection==null)
+            {
+                return;
+            }
+            
+            divForAddCap2Collection.style.display = "block";
+
+            if(isRightOrLeft == "True")
+            {
+                divForAddCap2Collection.style.left = 15 + "px"; 
+            }
+            else
+            {
+                divForAddCap2Collection.style.left = ((getElementLeft(obj)-divForAddCap2Collection.offsetWidth) + obj.offsetWidth) + "px";
+            } 
+            
+            divForAddCap2Collection.style.top = (getElementTop(obj)+obj.offsetHeight) + "px";
+            divForAddCap2Collection.style.zIndex = "9";
+            
+            setAddedMessageForDetail(obj, isRightOrLeft);
+            var rdoButton = document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_rdoExistCollection');
+            if (rdoButton == null) {
+                rdoButton = document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_rdoNewCollection');
+            }
+
+            if (rdoButton != null) {
+                rdoButton.focus();
+            }
+        }
+
+        function ShowClonePage() {
+            if ($.global.isAdmin == false)
+            {
+                var url = "/CitizenAccess/Cap/CapClone.aspx?Module=Licenses&amp;capId1=15CAP&amp;capId2=00000&amp;capId3=00AMC&amp;agencyCode=INDY";
+                var objectTargetID = "ctl00_PlaceHolderMain_lnkCloneRecord";
+                window.ACADialog.popup({ url: url, width: 745, height: 380, objectTarget: objectTargetID });
+            }
+
+            return false;
+        }
+
+        function hideDialogLoading() {
+            var processLoading = new ProcessLoading();
+            processLoading.hideLoading();
+        }
+
+        function popUpDetailDialog(pageUrl, objectTargetID) {
+            var popupDialogWidth = 680;
+            var popupDialogHeight = 600;
+            ACADialog.popup({ url: pageUrl, width: popupDialogWidth, height: popupDialogHeight, objectTarget: objectTargetID });
+        }
+
+        function ControlDisplay(obj, imgObj, isLeefNode, lnkObj, lblValue) {
+            if (obj.style.display == 'block' || obj.style.display == "" || obj.style.display == "table-row") {
+                if (!isLeefNode) {
+                    Collapsed(imgObj, CTreeTop, altExpanded);
+                    AddTitle(lnkObj, altExpanded, lblValue);
+                }
+                else {
+                    Collapsed(imgObj, ETreeMiddle, altExpanded);
+                    AddTitle(lnkObj, altExpanded, lblValue);
+                }
+
+                obj.style.display = 'none';
+            }
+            else {
+                if (!isLeefNode) {
+                    Expanded(imgObj, ETreeTop, altCollapsed);
+                    AddTitle(lnkObj, altCollapsed, lblValue);
+                }
+                else {
+                    Expanded(imgObj, CTreeMiddle, altCollapsed);
+                    AddTitle(lnkObj, altCollapsed, lblValue);
+                }
+                
+                obj.style.display = 'table-row';
+            }
+        }
+        
+        function AddToShoppingCart(obj) 
+        {
+            var moduleName = "Licenses";
+            var isRightOrLeft = 'False';
+            setAddedMessageForDetail(obj, isRightOrLeft);
+            PageMethods.AddToShoppingCart(moduleName, CallBackAdd2ShoppingCart);
+        }
+            
+        function CallBackAdd2ShoppingCart(result)
+        {
+            eval(result);
+        }
+        </script>
+        <div class="ACA_RightItem" id="ctl00_PlaceHolderMain_dvContent">
+            <span class="ACA_Page_Instruction ACA_Page_Instruction_FontSize" id="ctl00_PlaceHolderMain_lblPageInstruction"><p><font color="#ff0000"><strong>Attention: If you are renewing a Landlord Registration, please make sure to login with your user ID and password (top right corner). For detailed instructions </strong></font><a target="_blank" href="http://www.indy.gov/eGov/City/DCE/Licenses/Documents/2015/Landlord%20Registry%20user%20guide%2012-2015.pdf%0A"><strong>Click here </strong></a><strong><font color="#ff0000">and see pages 16 - 21.</font></strong> 
+</p></span>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" role="presentation">
+                <tbody><tr>
+                    <td>
+                        <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+                            <tbody><tr>
+                                <td>
+                                    <h1>
+                                        <span id="ctl00_PlaceHolderMain_per_permitDetail_label_permit">Record</span></h1>
+                                </td>
+                                <td>
+                                    <h1>
+                                        <span dir="ltr" id="ctl00_PlaceHolderMain_lblPermitNumber">LLRR15-000003</span></h1>
+                                </td>
+                                <td>
+                                    <h1>
+                                        :</h1>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                    <td>
+                    </td>
+                    <td class="ACA_CapDetail_Add2CollectionLink">
+                        <a class="add2collectionlink NotShowLoading" style="cursor: pointer;" onclick="AddToShoppingCart(this)" href="#">
+                            </a>
+                        <a class="add2collectionlink NotShowLoading" style="cursor: pointer;" onclick="addOnlyOneCAP2Collection(this)" href="#">
+                            </a>
+                    </td>
+                </tr>
+            </tbody></table>
+            <div class="ACA_Add2CollectionForm" id="divForAddCap2Collection">
+                
+<script language="javascript" type="text/javascript">
+    function AdjustCollectionNameStyle_ctl00_PlaceHolderMain_addForDetailPage()
+    {
+        if(isFireFox())
+        {
+            return;
+        }
+        
+        var tdEmpty = $get("ctl00_PlaceHolderMain_addForDetailPage_tdEmpty");
+        var txtName = $get("ctl00_PlaceHolderMain_addForDetailPage_txtName");
+        var txtNameError = document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtName_err_indicator");
+        
+        if(tdEmpty == null)
+        {
+            return;
+        }
+        
+        if(txtName == null || txtNameError == null)
+        {
+            tdEmpty.style.display = 'block';
+        }
+        else if(txtNameError.style.display == '' &amp;&amp; GetValue(txtName) == "" ) {
+            tdEmpty.style.display = 'none';
+        }
+        else
+        {
+            tdEmpty.style.display = 'block';
+        }
+    }
+    
+   
+    function EscapePopupWindowBykey_ctl00_PlaceHolderMain_addForDetailPage_btnCancel(e)
+    {
+       if (e.keyCode == 27 &amp;&amp; addCollectionClickElement != null) 
+       {
+         addCollectionClickElement.focus();
+         addCollectionClickElement = null;
+         ExitAddForm_ctl00_PlaceHolderMain_addForDetailPage_btnCancel(document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_btnCancel'));
+       }
+    }
+
+</script> 
+<div id="ctl00_PlaceHolderMain_addForDetailPage_updatePanelAdd">
+	
+<table onkeydown="javascript:EscapePopupWindowBykey_ctl00_PlaceHolderMain_addForDetailPage_btnCancel(event);" role="presentation">
+    <tbody><tr>
+        <td><span class="ACA_Collection_RdoButton ACA_Collection_RdoButton_FontSize aca_checkbox aca_checkbox_fontsize"><input type="radio" title="Add to Existing Folder" onclick="rdoCollectionClick_ctl00_PlaceHolderMain_addForDetailPage_rdoExistCollection(this);" checked="checked" value="rdoExistCollection" name="ctl00$PlaceHolderMain$addForDetailPage$collection" id="ctl00_PlaceHolderMain_addForDetailPage_rdoExistCollection" /></span></td>
+        <td><span class="ACA_Collection_RdoButton font13px" id="ctl00_PlaceHolderMain_addForDetailPage_lblExistingCollection">Add to Existing Folder</span></td>
+    </tr>
+    <tr>
+        <td style="padding-bottom:6px;"></td><td style="padding-bottom:6px;"><table cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection_table" parentcontrol="true" role="presentation"><tbody><tr><td><div id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection_element_group" class="ACA_Form"><div class="ACA_Label font12px"><div style="display:none;" class="ACA_Error_Indicator" id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection_err_indicator"><img alt="An error has occurred." src="/CitizenAccess/WebResource.axd?d=SA-AOrAXv_1htr_ri05EccZ31-kPD8BHr8jdCQIOrkXi0yy1YkFtzPHFcu6YfozPnnU_aENUzADmDyscDVl_u2rwMkuQdh16-MaNs4m8giVTOKonkIVKuAcrTo8fTgJoty7NkXpMs5qXdB1tgbqwq7MyHlW-s3KI-AVUTLpMYh81&amp;t=635391449560000000" /></div><span id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection_label_0"></span><span class="ACA_ErrorMessageLabel" id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection_label_2"></span><span class="ACA_VerticalExpressionMessageLabel" id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection_label_exp"></span></div><div style="margin-bottom: 2px;"><table border="0" cellspacing="0" cellpadding="0" class="subTable" role="presentation"><tbody><tr><td style="width:100%; " id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection_td"><select style="width:16.3em;" onchange="ddlMyCollectionChanged_ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection();" title="Keyboard Operating Instruction: Please hold ALT and press UP ARROW to expand the list, then press UP ARROW or DOWN ARROW to select an item, and finally press ENTER." id="ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection" name="ctl00$PlaceHolderMain$addForDetailPage$ddlMyCollection">
+		<option selected="selected" value="">--Select--</option>
+		<option value="1886">Fees Due - All Cases</option>
+
+	</select></td><td style="white-space: nowrap; padding-top: 5px;"></td></tr></tbody></table></div></div></td></tr></tbody></table></td></tr>
+    <tr>
+        <td><span class="ACA_Collection_RdoButton ACA_Collection_RdoButton_FontSize aca_checkbox aca_checkbox_fontsize"><input type="radio" title="Create a New Folder" onclick="rdoCollectionClick_ctl00_PlaceHolderMain_addForDetailPage_rdoNewCollection(this);" value="rdoNewCollection" name="ctl00$PlaceHolderMain$addForDetailPage$collection" id="ctl00_PlaceHolderMain_addForDetailPage_rdoNewCollection" /></span></td>
+        <td><span class="ACA_Collection_RdoButton font13px" id="ctl00_PlaceHolderMain_addForDetailPage_lblNewCollection">Create a New Folder</span></td> 
+    </tr>
+    <tr>
+        <td id="ctl00_PlaceHolderMain_addForDetailPage_tdEmpty"></td>
+	
+        <td colspan="2"><table cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" id="ctl00_PlaceHolderMain_addForDetailPage_txtName_table" parentcontrol="true" role="presentation"><tbody><tr><td><div id="ctl00_PlaceHolderMain_addForDetailPage_txtName_element_group" class="ACA_Form"><div class="ACA_Label font12px ACA_LabelHeight"><table border="0" cellspacing="0" cellpadding="0" class="subTable" role="presentation"><tbody><tr><td><div style="display:none;" class="ACA_Error_Indicator" id="ctl00_PlaceHolderMain_addForDetailPage_txtName_err_indicator"><img alt="An error has occurred." src="/CitizenAccess/WebResource.axd?d=SA-AOrAXv_1htr_ri05EccZ31-kPD8BHr8jdCQIOrkXi0yy1YkFtzPHFcu6YfozPnnU_aENUzADmDyscDVl_u2rwMkuQdh16-MaNs4m8giVTOKonkIVKuAcrTo8fTgJoty7NkXpMs5qXdB1tgbqwq7MyHlW-s3KI-AVUTLpMYh81&amp;t=635391449560000000" /></div><span id="ctl00_PlaceHolderMain_addForDetailPage_txtName_label_0"><div class="ACA_Required_Indicator">*</div></span><label for="ctl00_PlaceHolderMain_addForDetailPage_txtName" id="ctl00_PlaceHolderMain_addForDetailPage_txtName_label_1">Name:</label><span class="ACA_ErrorMessageLabel" id="ctl00_PlaceHolderMain_addForDetailPage_txtName_label_2"></span><span class="ACA_VerticalExpressionMessageLabel" id="ctl00_PlaceHolderMain_addForDetailPage_txtName_label_exp"></span></td></tr></tbody></table></div><div style="margin-bottom: 2px;"><table border="0" cellspacing="0" cellpadding="0" class="subTable" role="presentation"><tbody><tr><td style="width:100%; " id="ctl00_PlaceHolderMain_addForDetailPage_txtName_td"><input type="text" style="width:16em;" onblur="AdjustCollectionNameStyle_ctl00_PlaceHolderMain_addForDetailPage();" oninput="collectionNameChanged_ctl00_PlaceHolderMain_addForDetailPage_txtName();" onpropertychange="collectionNameChanged_ctl00_PlaceHolderMain_addForDetailPage_txtName();" title="Required" disabled="disabled" id="ctl00_PlaceHolderMain_addForDetailPage_txtName" maxlength="50" name="ctl00$PlaceHolderMain$addForDetailPage$txtName" /><span style="color:Red;display:none;" id="ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq"></span></td><td style="white-space: nowrap; padding-top: 5px;"></td></tr></tbody></table></div></div></td></tr></tbody></table></td>
+    </tr>
+    <tr>
+        <td></td><td style="padding-bottom:6px;"><table cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_table" parentcontrol="true" role="presentation"><tbody><tr><td><div id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_element_group" class="ACA_Form"><div class="ACA_Label font12px ACA_LabelHeight"><table border="0" cellspacing="0" cellpadding="0" class="subTable" role="presentation"><tbody><tr><td><div style="display:none;" class="ACA_Error_Indicator" id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_err_indicator"><img alt="An error has occurred." src="/CitizenAccess/WebResource.axd?d=SA-AOrAXv_1htr_ri05EccZ31-kPD8BHr8jdCQIOrkXi0yy1YkFtzPHFcu6YfozPnnU_aENUzADmDyscDVl_u2rwMkuQdh16-MaNs4m8giVTOKonkIVKuAcrTo8fTgJoty7NkXpMs5qXdB1tgbqwq7MyHlW-s3KI-AVUTLpMYh81&amp;t=635391449560000000" /></div><span id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_label_0"></span><label for="ctl00_PlaceHolderMain_addForDetailPage_txtDesc" id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_label_1">Description:</label><span class="ACA_ErrorMessageLabel" id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_label_2"></span><span class="ACA_VerticalExpressionMessageLabel" id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_label_exp"></span></td></tr></tbody></table></div><div style="margin-bottom: 2px;"><table border="0" cellspacing="0" cellpadding="0" class="subTable" role="presentation"><tbody><tr><td style="width:100%; " id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_td"><textarea style="height:7em;width:16em;" disabled="disabled" id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc" cols="20" rows="2" name="ctl00$PlaceHolderMain$addForDetailPage$txtDesc"></textarea><span style="color:Red;display:none;" id="ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad"></span></td><td style="white-space: nowrap; padding-top: 5px;"></td></tr></tbody></table></div></div></td></tr></tbody></table></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <table role="presentation">
+                <tbody><tr>
+                    <td>
+                        <div class="ACA_LgButtonDisable ACA_LgButtonDisable_FontSize">
+                            <a href="javascript:void(0);" id="ctl00_PlaceHolderMain_addForDetailPage_btnAdd" onclick="return false;" href_disabled="javascript:__doPostBack('ctl00$PlaceHolderMain$addForDetailPage$btnAdd','')" onclick_disabled="return CloseAddForm_ctl00_PlaceHolderMain_addForDetailPage_btnAdd(this);" disabled="disabled" class="ButtonDisabled"><span>Add</span></a>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="ACA_LgButton ACA_LgButton_FontSize">
+                            <a href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$PlaceHolderMain$addForDetailPage$btnCancel&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true));var p = new ProcessLoading();p.showLoading(true);;if (typeof(myValidationErrorPanel)!='undefined') myValidationErrorPanel.printErrors();" onkeydown="focusCurrentObj(event)" id="ctl00_PlaceHolderMain_addForDetailPage_btnCancel" onclick="ExitAddForm_ctl00_PlaceHolderMain_addForDetailPage_btnCancel(this);return false;"><span>Cancel</span></a>
+                        </div>
+                   </td>
+                </tr>
+            </tbody></table>
+         </td>
+    </tr>
+</tbody></table>
+
+</div>
+
+
+<script type="text/javascript" language="javascript"> 
+
+    function rdoCollectionClick_ctl00_PlaceHolderMain_addForDetailPage_rdoExistCollection(obj)
+    { 
+        document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtName").disabled = true;
+        document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtDesc").disabled = true;
+        document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection").disabled = false; 
+        ddlMyCollectionChanged_ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection(); 
+     }
+     
+     function rdoCollectionClick_ctl00_PlaceHolderMain_addForDetailPage_rdoNewCollection(obj)
+     {
+        document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtName").disabled = false;
+        document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtDesc").disabled = false;
+        
+        if (document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection") != null)
+        {
+            document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection").disabled = true; 
+        }
+        
+        collectionNameChanged_ctl00_PlaceHolderMain_addForDetailPage_txtName();
+     }
+     
+     //Existing collection changed.
+    function ddlMyCollectionChanged_ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection()
+    {
+        var value = document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection").value;
+
+        var btnAdd = document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_btnAdd");
+        
+        if(value == '')
+        {
+            DisableButton(btnAdd.id, true);
+            
+            btnAdd.parentNode.className = "ACA_LgButtonDisable ACA_LgButtonDisable_FontSize";
+        }
+        else
+        {
+            DisableButton(btnAdd.id, false);
+            
+            btnAdd.parentNode.className = "ACA_LgButton ACA_LgButton_FontSize";
+        }
+    }
+
+    //Collection name changed event.
+    function collectionNameChanged_ctl00_PlaceHolderMain_addForDetailPage_txtName()
+    {
+        var value = GetValueById("ctl00_PlaceHolderMain_addForDetailPage_txtName").replace(/(^\s*)|(\s*$)/g, "");
+
+        var btnAdd = document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_btnAdd");
+
+        if(value == '')
+        {
+            DisableButton(btnAdd.id, true);
+            
+            btnAdd.parentNode.className = "ACA_LgButtonDisable ACA_LgButtonDisable_FontSize";
+        }
+        else
+        {
+            DisableButton(btnAdd.id, false);
+            
+            btnAdd.parentNode.className = "ACA_LgButton ACA_LgButton_FontSize";
+        }
+    }
+    
+    ///When current record is last record after enter tab key then focus current obj
+    function focusCurrentObj(e) 
+    {
+      if (!e.shiftKey &amp;&amp; e.keyCode == 9) 
+      {
+        if (window.event) 
+        {
+            window.event.returnValue = false;
+        }
+        else 
+        {
+            e.preventDefault();  //for firefox
+        }
+        
+        ExitAddForm_ctl00_PlaceHolderMain_addForDetailPage_btnCancel(document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_btnCancel'))
+      }
+    }
+    
+    function CloseAddForm_ctl00_PlaceHolderMain_addForDetailPage_btnAdd(obj)
+    { 
+        var nameValue = GetValueById("ctl00_PlaceHolderMain_addForDetailPage_txtName").replace(/(^\s*)|(\s*$)/g, ""); 
+        var desValue = GetValueById("ctl00_PlaceHolderMain_addForDetailPage_txtDesc").replace(/(^\s*)|(\s*$)/g, "");
+        
+        if(document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_rdoExistCollection")!=null)
+        {
+            var collectionValue = document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_ddlMyCollection").value;
+            var idRdoExistCollectionChecked = document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_rdoExistCollection").checked;
+            if(idRdoExistCollectionChecked)
+            {
+                if(collectionValue == "")
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if(nameValue =="" || nameValue.length &gt; 50 || desValue.length &gt; 255)
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            if(nameValue =="" || nameValue.length &gt; 50 || desValue.length &gt; 255)
+            {
+                return false;
+            }
+        } 
+
+        var divCollection = obj.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        document.getElementById(divCollection.id).style.display='none';
+        return true;
+    }
+    
+    function ExitAddForm_ctl00_PlaceHolderMain_addForDetailPage_btnCancel(obj)
+    {
+        var divCollection = obj.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        document.getElementById(divCollection.id).style.display='none';
+        // This param is define in MyCollectionMethods.js, it's use for focus current link after pop up window closed.
+        if (addCollectionClickElement != null)
+        {
+            try{
+                addCollectionClickElement.focus();
+            }
+            catch(e){
+            }
+
+            addCollectionClickElement = null;
+        }
+    }
+   
+  
+    function clearNameDefaultValue()
+    {
+        var nameValue = GetValueById("ctl00_PlaceHolderMain_addForDetailPage_txtName").replace(/(^\s*)|(\s*$)/g, "");
+        if(nameValue=="name")
+        {
+            SetValueById("ctl00_PlaceHolderMain_addForDetailPage_txtName","");
+        } 
+    }
+    
+    
+    //Set add button disabled when first open this form.
+    function SetAddButtonDiabled_ctl00_PlaceHolderMain_addForDetailPage_btnAdd()
+    {
+        var btnAdd = document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_btnAdd");
+
+        DisableButton(btnAdd.id, true);
+
+        btnAdd.parentNode.className = "ACA_LgButtonDisable ACA_LgButtonDisable_FontSize";
+    }
+    
+     
+           SetAddButtonDiabled_ctl00_PlaceHolderMain_addForDetailPage_btnAdd();
+       
+</script>
+
+            </div>
+            <!-- share button div -->
+            <div class="div_social_media_type">
+                <h1>
+                    <span id="ctl00_PlaceHolderMain_lblPermitType">Landlord Registration</span>
+                </h1>
+                
+            </div>
+            <br />
+            <div id="ctl00_PlaceHolderMain_divRecordStatus">
+                <span class="record_detail_status">
+                    <span id="ctl00_PlaceHolderMain_lblRecordStatusTitle">Record Status:</span>
+                </span>
+                <span class="ACA_SmLabel ACA_SmLabel_FontSize">
+                    <span id="ctl00_PlaceHolderMain_lblRecordStatus">About to Expire</span>
+                </span>
+            </div>
+            <div id="ctl00_PlaceHolderMain_divRecordExpirationDate">
+                <span class="record_detail_expirationdate">
+                    <span id="ctl00_PlaceHolderMain_lblExpirtionDateTitle">Expiration Date:</span>
+                </span>
+                <span class="ACA_SmLabel ACA_SmLabel_FontSize">
+                    <span id="ctl00_PlaceHolderMain_lblExpirtionDate">01/04/2016</span>
+                </span>
+            </div> 
+
+            <div style="height:10px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_AccelaHeightSeparate1"></div>
+            
+
+<div>
+    <!--condition bar start-->
+    <div>
+        
+        
+        
+        
+    </div>
+    <!--condition bar end-->
+
+    <!--general condition section start-->         
+    
+    <!--general condition section end-->
+
+    <!--condition of approval section start-->    
+    
+    <!--condition of approval section end-->
+</div>
+<script type="text/javascript">
+    function ViewConditionDetail(obj, agencyCode, capId1, capId2, capId3, conditionNbr, moduleName) {
+        SetNotAskForSPEAR();
+        var targetUrl = '/CitizenAccess/Cap/ConditionOfApprovalDetail.aspx';
+        var params = "?agencyCode=" + agencyCode + "&amp;capId1=" + capId1 + "&amp;capId2=" + capId2 + "&amp;capId3=" + capId3 + "&amp;conditionNbr=" + conditionNbr + "&amp;Module=" + moduleName;
+        ACADialog.popup({ url: targetUrl + params, width: 800, height: 600, objectTarget: obj });
+        return false;
+    }
+
+    function ViewConditionAdditionalInfoDetail(obj, agencyCode, conditionNbr) {
+        SetNotAskForSPEAR();
+        var targetUrl = '/CitizenAccess/Cap/ConditionAdditionalInfoDetail.aspx';
+        var params = "?agencyCode=" + agencyCode + "&amp;conditionNbr=" + conditionNbr;
+        ACADialog.popup({ url: targetUrl + params, width: 500, height: 600, objectTarget: obj });
+        return false;
+    }
+</script>
+            <!-- Begin Work Location section-->
+            <div id="ctl00_PlaceHolderMain_divWorkLocation">
+                <div style="height:0px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_shWorkLocation_hsHeight"></div>
+<span id="ctl00_PlaceHolderMain_shWorkLocation"></span>
+<div imageid="ctl00_PlaceHolderMain_shWorkLocation_imgCollapseOrExpand" linkid="ctl00_PlaceHolderMain_shWorkLocation_lnkCollapseOrExpand" instructionid="ctl00_PlaceHolderMain_shWorkLocation_lblSectionTitle_sub_label" titlelabelid="ctl00_PlaceHolderMain_shWorkLocation_lblSectionTitle" sectionbodyid="divWorkLocationInfo" collapsed="false" collapsible="True" class="ACA_SectionHeaderTemp" id="ctl00_PlaceHolderMain_shWorkLocation_divSectionHeader">
+    
+        <div class="ACA_Title_Bar">
+            <h1>
+                <span class="ACA_FLeft"><a title="Collapse Work Location" onclick="if (true) { var collapsed = new SectionHeaderManager('ctl00_PlaceHolderMain_shWorkLocation').toggle(); if (collapsed) void(0); else void(0); }" class="SectionTextDecoration NotShowLoading" id="ctl00_PlaceHolderMain_shWorkLocation_lnkCollapseOrExpand" href="javascript:void(0);">
+                    <img expandedalttext="Expand" collapsedalttext="Collapse" expandedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_expanded.gif" collapsedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" alt="Collapse" class="SectionTitleArrow" id="ctl00_PlaceHolderMain_shWorkLocation_imgCollapseOrExpand" src="/CitizenAccess/app_themes/Default/assets/section_header_expanded.gif" />
+                </a><span enableexpand="Y" id="ctl00_PlaceHolderMain_shWorkLocation_lblSectionTitle">Work Location</span>
+                </span>
+            </h1>
+            
+            <span class="ACA_FRight">
+                
+            </span>
+            </div>
+        <span showncssclass="ACA_Section_Instruction ACA_Section_Instruction_FontSize" hiddencssclass="ACA_Hide" class="ACA_Hide" id="ctl00_PlaceHolderMain_shWorkLocation_lblSectionTitle_sub_label" classname="ACA_Hide"></span>
+    
+    <input type="submit" class="ACA_Hide" id="ctl00_PlaceHolderMain_shWorkLocation_btnSearch" onclick='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PlaceHolderMain$shWorkLocation$btnSearch", "", true, "", "", false, false))' value="" name="ctl00$PlaceHolderMain$shWorkLocation$btnSearch" />
+</div>
+<script type="text/javascript">
+    var searchWaterMark = 'Search...';
+
+    function ctl00_PlaceHolderMain_shWorkLocation_Keydown(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e &amp;&amp; e.keyCode == 13){
+            __doPostBack('ctl00$PlaceHolderMain$shWorkLocation$btnSearch', '');
+        }
+    }   
+
+    function ctl00_PlaceHolderMain_shWorkLocation_CleanText(obj){
+        if(obj.value == searchWaterMark){
+            obj.value = "";
+        }
+         obj.className = "gs_search_box INPUT";
+    }
+    
+    function ctl00_PlaceHolderMain_shWorkLocation_SearchBlur(obj){
+        if(obj.value.trim() == "" &amp;&amp; event.keyCode != 13)
+        {
+            obj.value = searchWaterMark;
+            obj.className = "gs_search_box watermark INPUT";
+        }
+    }
+</script>
+
+                <div class="" id="divWorkLocationInfo" style="visibility: visible;">
+                    <div id="divWorkLocationDetail">
+                        <div id="ctl00_PlaceHolderMain_workLocation_updatePanel">
+	
+<div class="div_parent_detail ACA_Break_Wrod">
+    <table width="404px" style="table-layout:fixed;border-collapse:collapse;" role="presentation" id="ctl00_PlaceHolderMain_workLocation_TBPermitDetailTest">
+		<tbody><tr style="margin-bottom:5px" class="ACA_FLeft">
+			<td><div>
+				<h1 style="font-size:1.4em;"><span id="ctl00_PlaceHolderMain_workLocation_per_permitDetail_label_address635948595668032439"></span></h1>
+			</div></td>
+		</tr>
+	</tbody></table>
+	
+</div>
+
+</div>
+                    </div>
+                    <div id="divWorkLocationMapDetail">
+                        
+                    </div>
+                    <div style="height:10px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_sepLineForWorkLocation"></div>
+                </div>
+            </div>
+            <!--End Work Location section-->
+            <!--Asset List Begin-->
+            
+            <!--Asset List End-->
+            <!--Begin Permit Detail Section-->
+            <div id="ctl00_PlaceHolderMain_divPermitDetail">
+                <div style="height:0px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_shPermitDetail_hsHeight"></div>
+<span id="ctl00_PlaceHolderMain_shPermitDetail"></span>
+<div imageid="ctl00_PlaceHolderMain_shPermitDetail_imgCollapseOrExpand" linkid="ctl00_PlaceHolderMain_shPermitDetail_lnkCollapseOrExpand" instructionid="ctl00_PlaceHolderMain_shPermitDetail_lblSectionTitle_sub_label" titlelabelid="ctl00_PlaceHolderMain_shPermitDetail_lblSectionTitle" sectionbodyid="divPermitDetailInfo" collapsed="false" collapsible="True" class="ACA_SectionHeaderTemp" id="ctl00_PlaceHolderMain_shPermitDetail_divSectionHeader">
+    
+        <div class="ACA_Title_Bar">
+            <h1>
+                <span class="ACA_FLeft"><a title="Collapse Record Details" onclick="if (true) { var collapsed = new SectionHeaderManager('ctl00_PlaceHolderMain_shPermitDetail').toggle(); if (collapsed) void(0); else void(0); }" class="SectionTextDecoration NotShowLoading" id="ctl00_PlaceHolderMain_shPermitDetail_lnkCollapseOrExpand" href="javascript:void(0);">
+                    <img expandedalttext="Expand" collapsedalttext="Collapse" expandedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_expanded.gif" collapsedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" alt="Collapse" class="SectionTitleArrow" id="ctl00_PlaceHolderMain_shPermitDetail_imgCollapseOrExpand" src="/CitizenAccess/app_themes/Default/assets/section_header_expanded.gif" />
+                </a><span enableexpand="Y" id="ctl00_PlaceHolderMain_shPermitDetail_lblSectionTitle">Record Details</span>
+                </span>
+            </h1>
+            
+            <span class="ACA_FRight">
+                
+            </span>
+            </div>
+        <span showncssclass="ACA_Section_Instruction ACA_Section_Instruction_FontSize" hiddencssclass="ACA_Hide" class="ACA_Hide" id="ctl00_PlaceHolderMain_shPermitDetail_lblSectionTitle_sub_label" classname="ACA_Hide"></span>
+    
+    <input type="submit" class="ACA_Hide" id="ctl00_PlaceHolderMain_shPermitDetail_btnSearch" onclick='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PlaceHolderMain$shPermitDetail$btnSearch", "", true, "", "", false, false))' value="" name="ctl00$PlaceHolderMain$shPermitDetail$btnSearch" />
+</div>
+<script type="text/javascript">
+    var searchWaterMark = 'Search...';
+
+    function ctl00_PlaceHolderMain_shPermitDetail_Keydown(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e &amp;&amp; e.keyCode == 13){
+            __doPostBack('ctl00$PlaceHolderMain$shPermitDetail$btnSearch', '');
+        }
+    }   
+
+    function ctl00_PlaceHolderMain_shPermitDetail_CleanText(obj){
+        if(obj.value == searchWaterMark){
+            obj.value = "";
+        }
+         obj.className = "gs_search_box INPUT";
+    }
+    
+    function ctl00_PlaceHolderMain_shPermitDetail_SearchBlur(obj){
+        if(obj.value.trim() == "" &amp;&amp; event.keyCode != 13)
+        {
+            obj.value = searchWaterMark;
+            obj.className = "gs_search_box watermark INPUT";
+        }
+    }
+</script>
+
+                <div class="" id="divPermitDetailInfo" style="visibility: visible;">
+                <div id="ctl00_PlaceHolderMain_PermitDetailList1_updatePanel">
+	
+<div class="div_parent_detail">
+    <table width="714px" style="table-layout:fixed;border-collapse:collapse;" class="table_parent_detail" role="presentation" id="ctl00_PlaceHolderMain_PermitDetailList1_TBPermitDetailTest">
+	</table>
+	
+</div>
+
+<div id="ctl00_PlaceHolderMain_PermitDetailList1_tbMoreDetail">
+    <table border="0" width="100%" cellspacing="0" cellpadding="0" role="presentation">
+        <tbody><tr>
+            <td style="height: 24px" colspan="3">
+                <h1 class="ACA_FLeftForStyle">
+                    <a id="lnkMoreDetail" title="Collapse More Details" onclick='ControlDisplay($get("TRMoreDetail"),$get("imgMoreDetail"),false,$get("lnkMoreDetail"),$get("ctl00_PlaceHolderMain_PermitDetailList1_lblMoreDetail"))' class="NotShowLoading" href="javascript:void(0);">
+                    <img id="imgMoreDetail" src="/CitizenAccess/app_themes/Default/assets/caret_expanded.gif" alt="Collapse" style="cursor: pointer; border-width:0px;" /></a><span id="ctl00_PlaceHolderMain_PermitDetailList1_lblMoreDetail">More Details</span></h1>
+            </td>
+        </tr>
+        <tr style="display: table-row;" id="TRMoreDetail">
+            <td class="moredetail_td">
+                </td>
+            <td style="height: 24px;" colspan="2">
+                <div style="text-align: center;">
+                    <span id="ctl00_PlaceHolderMain_PermitDetailList1_tbRCList">
+                        <table border="0" cellspacing="0" cellpadding="0" style="width: 98%" role="presentation">
+                            <tbody><tr>
+                                <td class="MoreDetail_BlockTitle">
+                                    <h1>
+                                       <a class="NotShowLoading" id="lnkRc" title="Collapse Related Contacts" onclick='ControlDisplay($get("trRCList"),$get("imgRc"),true,$get("lnkRc"),$get("ctl00_PlaceHolderMain_PermitDetailList1_lblRelatContact"))' href="javascript:void(0);">
+                                       <img id="imgRc" src="/CitizenAccess/app_themes/Default/assets/minus_collapse.gif" alt="Collapse" style="cursor: pointer; border-width:0px;" /></a><span id="ctl00_PlaceHolderMain_PermitDetailList1_lblRelatContact">Related Contacts</span></h1>
+                                </td>
+                            </tr>
+                            <tr style="display: table-row;" id="trRCList">
+                                <td class="MoreDetail_BlockContent">
+                                    <table border="0" cellspacing="0" style="border-collapse:collapse;" role="presentation" id="ctl00_PlaceHolderMain_PermitDetailList1_RelatContactList">
+		<tbody><tr>
+			<td class="ACA_Table_Align_Top">
+                                            <div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><h2>Applicant (Landlord) information</h2> <div style="width:30%;" class="ACA_ConfigInfo ACA_FLeft"> <ul><table class="Confirm_table ACA_SmLabel ACA_SmLabel_FontSize" style="TEMPLATE_STYLE" role="presentation"><tbody><tr><td><span>Stephan </span><span>M </span><span>Kline</span> <br />                Kline Properties, Inc.<br />                3901 S East St, Suite E<br />                Indianapolis, IN, 46227</td></tr></tbody></table><table class="table_child ACA_SmLabel ACA_SmLabel_FontSize" role="presentation"><tbody><tr><td><table border="0" cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" role="presentation"><tbody><tr><td style="vertical-align:top;">Primary Phone:</td><td style="vertical-align:top;"><div class="ACA_PhoneNumberLTR">317-644-1400</div></td></tr></tbody></table><table border="0" cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" role="presentation"><tbody><tr><td style="vertical-align:top;">Alternate Phone:</td><td style="vertical-align:top;"><div class="ACA_PhoneNumberLTR">317-644-1401</div></td></tr></tbody></table><table border="0" cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" role="presentation"><tbody><tr><td style="vertical-align:top;">Fax:</td><td style="vertical-align:top;"><div class="ACA_PhoneNumberLTR">317-781-0155</div></td></tr></tbody></table><table border="0" cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" role="presentation"><tbody><tr><td style="vertical-align:top;">E-mail:</td><td style="vertical-align:top;"><table border="0" cellspacing="0" cellpadding="0" class="ACA_TDAlignLeftOrRightTop" role="presentation"><tbody><tr><td style="vertical-align:top;">skline@klinepm.com</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table> </ul></div> <div class="ACA_TabRow ACA_FLeft"></div></div>
+                                        </td><td></td>
+		</tr>
+	</tbody></table></td>
+                            </tr>
+                        </tbody></table>
+                    </span><span id="ctl00_PlaceHolderMain_PermitDetailList1_tbASITList">
+                        <table border="0" cellspacing="0" cellpadding="0" style="width: 98%;" role="presentation">
+                            <tbody><tr>
+                                <td class="MoreDetail_BlockTitle">
+                                    <h1>
+                                        <a class="NotShowLoading" id="lnkASITableList" title="Collapse Application Information Table" onclick='ControlDisplay($get("trASITList"),$get("imgASIT"),true,$get("lnkASITableList"),$get("ctl00_PlaceHolderMain_PermitDetailList1_lblASITableList"))' href="javascript:void(0);">
+                                        <img id="imgASIT" src="/CitizenAccess/app_themes/Default/assets/minus_collapse.gif" alt="Collapse" style="cursor: pointer; border-width:0px;" /></a><span id="ctl00_PlaceHolderMain_PermitDetailList1_lblASITableList">Application Information Table</span></h1>
+                                </td>
+                            </tr>
+                            <tr style="display: table-row;" id="trASITList">
+                                <td class="MoreDetail_BlockContent">
+                                    <table cellspacing="0" cellpadding="0" role="presentation">
+		<tbody><tr>
+			<td class="MoreDetail_ItemCol1"><div class="ACA_TabRow ACA_Title_Text font12px ACA_DivPadding0" style="width:100%;">PROPERTY DETAILS</div></td>
+		</tr>
+		<tr>
+			<td width="100%" class="ACA_AlignLeftOrRight"><div class="MoreDetail_Item"><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Chg Type:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">No Action</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Parcel No.:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">5017811</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Prop Name:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">8111 Little Circle Rd</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">No. of Units:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">1</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Addr #:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">4930</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Dir:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">S</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Street Name:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">MISSOURI ST</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Type:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">ST</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">City:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">INDIANAPOLIS</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">State:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">IN</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol1"><span class="ACA_SmLabelBolder font11px">Zip:</span></div><div class="MoreDetail_ItemCol MoreDetail_ItemCol2"><span class="ACA_SmLabel ACA_SmLabel_FontSize">46217</span></div></div></td>
+		</tr>
+	</tbody></table>
+	
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+
+</div>
+
+<script type="text/javascript" language="javascript">
+    var oldALHeight = "16px";
+    var oldALPHeight = "16px";
+    function DisplayAdditionInfo(name, obj, tblID) {
+        var table = document.getElementById(tblID);
+        var title = obj.innerHTML;
+        var hideAL = '&amp;lt;&amp;lt;Hide Additional Locations';
+        var showAL = 'View Additional Locations&amp;gt;&amp;gt;';
+        var hideALP = '&amp;lt;&amp;lt;Hide Additional Licensed Professionals';
+        var showALP = 'View Additional Licensed Professionals&amp;gt;&amp;gt;';
+
+        var marginHeight = table.style.marginBottom;
+        if (title == showAL) {
+            if (marginHeight != oldALHeight &amp;&amp; marginHeight == "16px") {
+                oldALHeight = marginHeight;
+            }
+            table.style.marginBottom = "16px";
+            obj.innerHTML = hideAL;
+            SetTrStyle(name, "block");
+        } else if (title == hideAL) {
+            table.style.marginBottom = oldALHeight;
+            obj.innerHTML = showAL;
+            SetTrStyle(name, "none");
+        } else if (title == showALP) {
+            if (marginHeight != oldALPHeight &amp;&amp; marginHeight == "16px") {
+                oldALPHeight = marginHeight;
+            }
+            table.style.marginBottom = "16px";
+            obj.innerHTML = hideALP;
+            SetTrStyle(name, "block");
+        } else if (title == hideALP) {
+            table.style.marginBottom = oldALPHeight;
+            obj.innerHTML = showALP;
+            SetTrStyle(name, "none");
+        }
+
+    }
+    function SetTrStyle(name, css) {
+        var trs = document.getElementsByTagName("tr");
+        for (var i = 0; i &lt; trs.length; i++) {
+            var title = trs[i].getAttribute("tips");
+            if (title == name) {
+                trs[i].style.display = css == "block" ? "table-row" : "none";
+            }
+        }
+    }
+
+
+    function hideControls(controlIDs) {
+        if (controlIDs &amp;&amp; controlIDs.length &gt; 0) {
+            var prefix = 'ctl00_PlaceHolderMain_PermitDetailList1_TBPermitDetailTest'.replace('TBPermitDetailTest', '');
+
+            for (var i = 0; i &lt; controlIDs.length; i++) {
+                var clientID = prefix + controlIDs[i];
+                document.getElementById(clientID).style.display = "none";
+            }
+
+            var displayMoreDetail = "none";
+            var moreDetails = ['tbRCList', 'tbADIList', 'tbASIList', 'tbASITList', 'tbParcelList'];
+
+            //Display "More Details" section if one or more items show.
+            for (var i = 0; i &lt; moreDetails.length; i++) {
+                if (document.getElementById(prefix + moreDetails[i]).style.display != "none") {
+                    displayMoreDetail = "block";
+                    break;
+                }
+            }
+
+            document.getElementById('ctl00_PlaceHolderMain_PermitDetailList1_tbMoreDetail').style.display = displayMoreDetail;
+        }
+    }
+
+    // Expand More Details in Admin
+    if ($.global.isAdmin) {
+        ControlDisplay($get("TRMoreDetail"), $get("imgMoreDetail"), false, $get("lnkMoreDetail"), $get("ctl00_PlaceHolderMain_PermitDetailList1_lblMoreDetail"));
+    }
+
+</script>
+
+
+                <div id="buttonsContainer" class="ACA_TabRow ACA_LiLeft action_buttons">
+                    <div style="height:5px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_sepForPermitDetail"></div>
+                    <ul>
+                        <li>
+                            <div class="ACA_SmButton ACA_SmButton_FontSize">
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ACA_SmButton ACA_SmButton_FontSize">
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ACA_SmButton ACA_SmButton_FontSize">
+                                <a href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$PlaceHolderMain$lnkPrintSummary&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true));if (typeof(myValidationErrorPanel)!='undefined') myValidationErrorPanel.printErrors();" class="NotShowLoading" title="Shopping Cart Receipt" id="ctl00_PlaceHolderMain_lnkPrintSummary" onclick="print_onclick('../Report/ReportParameter.aspx?Module=Licenses&amp;reportType=PRINT_PERMIT_SUMMARY_REPORT&amp;reportID=2100&amp;agencyCode=INDY');return false;"><span>Print/View Receipt</span></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ACA_SmButton ACA_SmButton_FontSize">
+                                
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ACA_TabRow ACA_LiLeft action_buttons">
+                    <ul>
+                        
+                        
+                        
+                    </ul>
+                </div>
+                
+            </div>
+            </div>
+            <!--   End Permit Detail Section-->
+            <!--   Fee Detail Section-->
+            <div id="ctl00_PlaceHolderMain_divFee">
+                <div style="height:0px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_shFee_hsHeight"></div>
+<span id="ctl00_PlaceHolderMain_shFee"></span>
+<div imageid="ctl00_PlaceHolderMain_shFee_imgCollapseOrExpand" linkid="ctl00_PlaceHolderMain_shFee_lnkCollapseOrExpand" instructionid="ctl00_PlaceHolderMain_shFee_lblSectionTitle_sub_label" titlelabelid="ctl00_PlaceHolderMain_shFee_lblSectionTitle" sectionbodyid="divFeeListContent" collapsed="true" collapsible="True" class="ACA_SectionHeaderTemp" id="ctl00_PlaceHolderMain_shFee_divSectionHeader">
+    
+        <div class="ACA_Title_Bar">
+            <h1>
+                <span class="ACA_FLeft"><a title="Expand Fees" onclick="if (true) { var collapsed = new SectionHeaderManager('ctl00_PlaceHolderMain_shFee').toggle(); if (collapsed) void(0); else ExpandFeeSection(); }" class="SectionTextDecoration NotShowLoading" id="ctl00_PlaceHolderMain_shFee_lnkCollapseOrExpand" href="javascript:void(0);">
+                    <img expandedalttext="Expand" collapsedalttext="Collapse" expandedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_expanded.gif" collapsedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" alt="Expand" class="SectionTitleArrow" id="ctl00_PlaceHolderMain_shFee_imgCollapseOrExpand" src="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" />
+                </a><span enableexpand="Y" id="ctl00_PlaceHolderMain_shFee_lblSectionTitle">Fees</span>
+                </span>
+            </h1>
+            
+            <span class="ACA_FRight">
+                
+            </span>
+            </div>
+        <span showncssclass="ACA_Section_Instruction ACA_Section_Instruction_FontSize" hiddencssclass="ACA_Hide" class="ACA_Hide" id="ctl00_PlaceHolderMain_shFee_lblSectionTitle_sub_label"></span>
+    
+    <input type="submit" class="ACA_Hide" id="ctl00_PlaceHolderMain_shFee_btnSearch" onclick='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PlaceHolderMain$shFee$btnSearch", "", true, "", "", false, false))' value="" name="ctl00$PlaceHolderMain$shFee$btnSearch" />
+</div>
+<script type="text/javascript">
+    var searchWaterMark = 'Search...';
+
+    function ctl00_PlaceHolderMain_shFee_Keydown(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e &amp;&amp; e.keyCode == 13){
+            __doPostBack('ctl00$PlaceHolderMain$shFee$btnSearch', '');
+        }
+    }   
+
+    function ctl00_PlaceHolderMain_shFee_CleanText(obj){
+        if(obj.value == searchWaterMark){
+            obj.value = "";
+        }
+         obj.className = "gs_search_box INPUT";
+    }
+    
+    function ctl00_PlaceHolderMain_shFee_SearchBlur(obj){
+        if(obj.value.trim() == "" &amp;&amp; event.keyCode != 13)
+        {
+            obj.value = searchWaterMark;
+            obj.className = "gs_search_box watermark INPUT";
+        }
+    }
+</script>
+
+                <div class="ACA_Hide" id="divFeeListContent">
+                    <div style="display: none" id="divFeeList">
+                    </div>
+                    <div class="ACA_SmLabel ACA_SmLabel_FontSize" style="display: none" id="divFeeListPaid">
+                        Loading...
+                    </div>
+                    <div class="ACA_SmLabel ACA_SmLabel_FontSize" style="display: none" id="divNoRecord">
+                    </div>
+                </div>
+            </div>
+            <!--   end Fee Detail Section-->
+            <!--   Begin Inspection Detail Section-->
+            
+            <!-- End Inspection Detail Section-->
+            <!--workflow section start-->
+            <div id="ctl00_PlaceHolderMain_divWorkflow">
+                <div id="ctl00_PlaceHolderMain_divProcessStatus">
+                    <div style="height:0px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_shProcessStatus_hsHeight"></div>
+<span id="ctl00_PlaceHolderMain_shProcessStatus"></span>
+<div imageid="ctl00_PlaceHolderMain_shProcessStatus_imgCollapseOrExpand" linkid="ctl00_PlaceHolderMain_shProcessStatus_lnkCollapseOrExpand" instructionid="ctl00_PlaceHolderMain_shProcessStatus_lblSectionTitle_sub_label" titlelabelid="ctl00_PlaceHolderMain_shProcessStatus_lblSectionTitle" sectionbodyid="divProcessInfo" collapsed="true" collapsible="True" class="ACA_SectionHeaderTemp" id="ctl00_PlaceHolderMain_shProcessStatus_divSectionHeader">
+    
+        <div class="ACA_Title_Bar">
+            <h1>
+                <span class="ACA_FLeft"><a title="Expand Processing Status" onclick="if (true) { var collapsed = new SectionHeaderManager('ctl00_PlaceHolderMain_shProcessStatus').toggle(); if (collapsed) void(0); else ExpandWorkflowSection(); }" class="SectionTextDecoration NotShowLoading" id="ctl00_PlaceHolderMain_shProcessStatus_lnkCollapseOrExpand" href="javascript:void(0);">
+                    <img expandedalttext="Expand" collapsedalttext="Collapse" expandedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_expanded.gif" collapsedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" alt="Expand" class="SectionTitleArrow" id="ctl00_PlaceHolderMain_shProcessStatus_imgCollapseOrExpand" src="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" />
+                </a><span enableexpand="Y" id="ctl00_PlaceHolderMain_shProcessStatus_lblSectionTitle">Processing Status</span>
+                </span>
+            </h1>
+            
+            <span class="ACA_FRight">
+                
+            </span>
+            </div>
+        <span showncssclass="ACA_Section_Instruction ACA_Section_Instruction_FontSize" hiddencssclass="ACA_Hide" class="ACA_Hide" id="ctl00_PlaceHolderMain_shProcessStatus_lblSectionTitle_sub_label"></span>
+    
+    <input type="submit" class="ACA_Hide" id="ctl00_PlaceHolderMain_shProcessStatus_btnSearch" onclick='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PlaceHolderMain$shProcessStatus$btnSearch", "", true, "", "", false, false))' value="" name="ctl00$PlaceHolderMain$shProcessStatus$btnSearch" />
+</div>
+<script type="text/javascript">
+    var searchWaterMark = 'Search...';
+
+    function ctl00_PlaceHolderMain_shProcessStatus_Keydown(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e &amp;&amp; e.keyCode == 13){
+            __doPostBack('ctl00$PlaceHolderMain$shProcessStatus$btnSearch', '');
+        }
+    }   
+
+    function ctl00_PlaceHolderMain_shProcessStatus_CleanText(obj){
+        if(obj.value == searchWaterMark){
+            obj.value = "";
+        }
+         obj.className = "gs_search_box INPUT";
+    }
+    
+    function ctl00_PlaceHolderMain_shProcessStatus_SearchBlur(obj){
+        if(obj.value.trim() == "" &amp;&amp; event.keyCode != 13)
+        {
+            obj.value = searchWaterMark;
+            obj.className = "gs_search_box watermark INPUT";
+        }
+    }
+</script>
+
+                    <div class="ACA_Hide" id="divProcessInfo">
+                        <div class="ACA_SmLabel ACA_SmLabel_FontSize" style="display: none" id="divProcessLoading">
+                            Loading...</div>
+                        <div class="fontbold" id="divProcessingTable">
+                        </div>
+                        
+<div class="ACA_SmLabel ACA_SmLabel_FontSize ACA_Hide" id="divLoading">
+    Loading...
+</div>
+<div id="ctl00_PlaceHolderMain_processInstruction_workFlowProcess">
+	
+        
+    
+</div>
+                    </div>
+                </div>
+            </div>
+            <!--workflow section end-->
+            <!--   Attachment Begin -->
+            
+            <!--   Attachment End -->
+            <!--Related Permits Begin-->
+            <div id="ctl00_PlaceHolderMain_divRelatedPermits">
+                <div style="height:0px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_shRelatedPermit_hsHeight"></div>
+<span id="ctl00_PlaceHolderMain_shRelatedPermit"></span>
+<div imageid="ctl00_PlaceHolderMain_shRelatedPermit_imgCollapseOrExpand" linkid="ctl00_PlaceHolderMain_shRelatedPermit_lnkCollapseOrExpand" instructionid="ctl00_PlaceHolderMain_shRelatedPermit_lblSectionTitle_sub_label" titlelabelid="ctl00_PlaceHolderMain_shRelatedPermit_lblSectionTitle" sectionbodyid="divRelatedPermit" collapsed="true" collapsible="True" class="ACA_SectionHeaderTemp" id="ctl00_PlaceHolderMain_shRelatedPermit_divSectionHeader">
+    
+        <div class="ACA_Title_Bar">
+            <h1>
+                <span class="ACA_FLeft"><a title="Expand Related Records" onclick="if (true) { var collapsed = new SectionHeaderManager('ctl00_PlaceHolderMain_shRelatedPermit').toggle(); if (collapsed) void(0); else ExpandRelatedPermitSection(false); }" class="SectionTextDecoration NotShowLoading" id="ctl00_PlaceHolderMain_shRelatedPermit_lnkCollapseOrExpand" href="javascript:void(0);">
+                    <img expandedalttext="Expand" collapsedalttext="Collapse" expandedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_expanded.gif" collapsedimageurl="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" alt="Expand" class="SectionTitleArrow" id="ctl00_PlaceHolderMain_shRelatedPermit_imgCollapseOrExpand" src="/CitizenAccess/app_themes/Default/assets/section_header_collapsed.gif" />
+                </a><span enableexpand="Y" id="ctl00_PlaceHolderMain_shRelatedPermit_lblSectionTitle">Related Records</span>
+                </span>
+            </h1>
+            
+            <span class="ACA_FRight">
+                
+            </span>
+            </div>
+        <span showncssclass="ACA_Section_Instruction ACA_Section_Instruction_FontSize" hiddencssclass="ACA_Hide" class="ACA_Hide" id="ctl00_PlaceHolderMain_shRelatedPermit_lblSectionTitle_sub_label"></span>
+    
+    <input type="submit" class="ACA_Hide" id="ctl00_PlaceHolderMain_shRelatedPermit_btnSearch" onclick='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PlaceHolderMain$shRelatedPermit$btnSearch", "", true, "", "", false, false))' value="" name="ctl00$PlaceHolderMain$shRelatedPermit$btnSearch" />
+</div>
+<script type="text/javascript">
+    var searchWaterMark = 'Search...';
+
+    function ctl00_PlaceHolderMain_shRelatedPermit_Keydown(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e &amp;&amp; e.keyCode == 13){
+            __doPostBack('ctl00$PlaceHolderMain$shRelatedPermit$btnSearch', '');
+        }
+    }   
+
+    function ctl00_PlaceHolderMain_shRelatedPermit_CleanText(obj){
+        if(obj.value == searchWaterMark){
+            obj.value = "";
+        }
+         obj.className = "gs_search_box INPUT";
+    }
+    
+    function ctl00_PlaceHolderMain_shRelatedPermit_SearchBlur(obj){
+        if(obj.value.trim() == "" &amp;&amp; event.keyCode != 13)
+        {
+            obj.value = searchWaterMark;
+            obj.className = "gs_search_box watermark INPUT";
+        }
+    }
+</script>
+
+                <div class="ACA_Hide ACA_TabRow ACA_LiLeft" id="divRelatedPermit">
+                    <div class="ACA_Row" id="divRelatePermitButton">
+                        <ul>
+                            <li>
+                                <div class="ACA_SmButton ACA_SmButton_FontSize">
+                                    <a href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$PlaceHolderMain$btnSwitchTreeView&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true));var p = new ProcessLoading();p.showLoading(true);;if (typeof(myValidationErrorPanel)!='undefined') myValidationErrorPanel.printErrors();" id="ctl00_PlaceHolderMain_btnSwitchTreeView" onclick="ExpandRelatedPermitSection(true);var p = new ProcessLoading();p.showLoading(true);return false;"><span>View Entire Tree </span></a>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                        <div style="height:5px;clear:both;width:100%;" id="ctl00_PlaceHolderMain_heightSeparater"></div>
+                    </div>
+                    <div class="ACA_SmLabel ACA_SmLabel_FontSize" style="display: none" id="divRelatedCapLoading">
+                        Loading...</div>
+                    <div id="divRelatedCapTree">
+                    </div>
+                </div>
+            </div>
+            <!--Related Permits End-->
+            <!--Education Begin-->
+            
+            <!--Education End-->
+            <!--Continuing Education Begin-->
+            
+            <!--Continuing Education End-->
+            <!--Examination Begin-->
+            
+            <!--Examination End-->
+            <!--Valuation Calculator Begin-->
+            
+            <!--Valuation Calculator End-->
+            <!--Trust Account List Begin-->
+            
+            <!--Trust Account List End-->
+            <div class="ACA_Loading_Message ACA_SmLabel ACA_SmLabel_FontSize" id="divAdded">
+            </div>
+        </div>
+        <script type="text/javascript">
+            if (typeof (ExportCSV) != 'undefined') {
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+                prm.add_endRequest(EndRequest);
+            }
+
+            function EndRequest(sender, args) {
+                //export file.
+                ExportCSV(sender, args);
+            }
+        </script>
+        <iframe width="0" height="0" title="Sorry, your browser does not support iframes; try a browser that supports W3 standards." class="ACA_Hide" id="iframeExport">Sorry, your browser does not support iframes; try a browser that supports W3 standards.</iframe>
+    </div>
+
+                <!--
+                In Chorme and Opera 15, need add the div,
+                because when content div set float property, not hodler height in container
+                -->
+                <div style="clear:both;"></div>
+            </div>
+            <div style="width:auto" class="ACA_Loading_Message" id="divLoadingTemplate">
+                <img src="/CitizenAccess/app_themes/Default/assets/loading.gif" alt="Please wait..." />
+                <span class="ACA_SmLabel ACA_SmLabel_FontSize" id="ctl00_lblLoading">Loading...</span> 
+            </div>
+            
+        </div></div>
+        <div id="ctl00_UpdatePanel4Expression">
+	
+                <input type="hidden" class="HDExpressionResultCss" id="ctl00_HDExpressionParam" name="ctl00$HDExpressionParam" />
+            
+</div>
+        <script type="text/javascript">
+            setInterval("iframeAutoFit()", 300);
+
+            if (typeof (divAccessibility) != 'undefined')
+            {
+                if (document.getElementById(divAccessibility)!=null &amp;&amp; $("#" + divAccessibility).get(0))
+                {
+                    $("#" + divAccessibility).hide();
+                }
+            }
+
+            with (Sys.WebForms.PageRequestManager.getInstance()) {
+                add_beginRequest(onBeginRequest);
+                add_endRequest(onEndRequest);
+                add_pageLoaded(onPageLoaded);
+            }
+            
+            function onBeginRequest(sender, args) {
+                if ($.global.isAdmin) {
+                    //1. in admin, if async request, we need record the client id of last selected object.
+                    var obj = document.currentSelectedObj;
+
+                    if (obj &amp;&amp; obj._element) {
+                        parent.document.currentSelectedID = obj._element.id;
+                    }
+
+                    $('*').css('cursor', 'wait');
+                }
+            }
+
+            var processLoading = new ProcessLoading();
+            function onPageLoaded(sender, args) {
+                if ($.global.isAdmin) {
+                    //2. in admin, if async request, use last selected object id to get the object and trigger it select.
+                    var selectedId = parent.document.currentSelectedID;
+
+                    if (selectedId) {
+                        invokeClick($get(selectedId));
+
+                        //3. when it select completed, clear this.
+                        parent.document.currentSelectedID = null;
+                    }
+
+                    $('*').css('cursor', '');
+                } else {
+                    firstErrorMsgId = '';
+                    processLoading.initControlLoading();
+
+                    addPrintErrors2SubmitButton();
+
+                    if ($.browser.opera) {
+                        //Make links 'tab-able' in Opera
+                        SetTabIndexForOpera();
+
+                        //For support opera to Tab between iframe content and outside of iframe
+                        $("#hlSkipToContent", window.parent.document).keydown(function (e) {
+                            OverrideTabKey2(e, $("#ctl00_hlSkipToolBar"));
+                        });
+
+                        $("#ctl00_hlContentEnd").keydown(function (e) {
+                            OverrideTabKey2(e, $("#hlSkipNavigation", window.parent.document));
+                        });
+                    }
+                }
+            }
+
+            function onEndRequest(sender, arg) {
+                if (!$.global.isAdmin) {
+                    var sourceElement = sender._postBackSettings.sourceElement;
+
+                    if (sourceElement == null || (sourceElement != null &amp;&amp; $(sourceElement).hasClass('NotShowLoading') == false)) {
+                        processLoading.hideLoading();
+                    }
+
+                    if (delayShowLoadingTimer) {
+                        window.clearTimeout(delayShowLoadingTimer);
+                    }
+                }
+            }
+        </script>
+        <input type="submit" onclick="return false;" class="HiddenButton" value="Submit" name="Submit" />
+    
+<script type="text/javascript">
+//&lt;![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq"), document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad"));
+//]]&gt;
+</script>
+
+<script type="text/javascript">
+//&lt;![CDATA[
+var ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq = document.all ? document.all["ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq"] : document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq");
+ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq.controltovalidate = "ctl00_PlaceHolderMain_addForDetailPage_txtName";
+ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq.focusOnError = "t";
+ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq.display = "None";
+ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq.initialvalue = "";
+var ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad = document.all ? document.all["ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad"] : document.getElementById("ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad");
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.controltovalidate = "ctl00_PlaceHolderMain_addForDetailPage_txtDesc";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.focusOnError = "t";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.errormessage = "Must be less than 255 characters.";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.display = "None";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.evaluationfunction = "checkLength";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.maxLength = "255";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.minLength = "0";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.mask = "";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.displayEntered = "True";
+ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad.errorMessage = "Must be less than 255 characters.";
+//]]&gt;
+</script>
+
+
+<script type="text/javascript">
+//&lt;![CDATA[
+ACADialog.close_image_url='/CitizenAccess/app_themes/Default/assets/closepopup.png';ACADialog.spacer_image_url='/CitizenAccess/app_themes/Default/assets/spacer.gif';ACADialog.begin_alt='It is at the beginning of the form.';ACADialog.end_alt='This is the end of the form. Press the Tab key to move the focus to the beginning.';ACADialog.close_alt='Close';ACADialog.iframe_title='Accela Citizen Access popup page.';ACADialog.agencyCode='INDY';var curWindow = this.window;
+                                  curWindow.scrollTo(0, 0);
+                                  while (curWindow.parent!= null &amp;&amp; curWindow.parent != curWindow) { 
+                                        try{                                           
+                                            curWindow = curWindow.parent;
+                                            curWindow.scrollTo(0, 0);
+                                        }catch(ex){
+                                           
+                                        }
+                                  };new SectionHeaderManager('ctl00_PlaceHolderMain_capConditions_shGeneralConditionsInfo').toggle();new SectionHeaderManager('ctl00_PlaceHolderMain_capConditions_shConditionOfApproval').toggle();new SectionHeaderManager('ctl00_PlaceHolderMain_shWorkLocation').toggle();new SectionHeaderManager('ctl00_PlaceHolderMain_shPermitDetail').toggle();new SectionHeaderManager('ctl00_PlaceHolderMain_shInspection').toggle();if(typeof (ctl00_PlaceHolderMain_attachmentEdit_InitButtons) != 'undefined'){ctl00_PlaceHolderMain_attachmentEdit_InitButtons(false);}bindReports([[['html','&lt;div class="Header_h3"&gt;Reports (2):&lt;/div&gt;'],['type','label']],[['html','&lt;a style="margin:8px;" id="report2090" href="javascript:void(0);" onfocus="SetFocusIn();" onblur="SetBlurOut();" &gt;Special Events Application&lt;/a&gt;'],['url','/CitizenAccess/Report/ReportParameter.aspx?module=Licenses&amp;reportID=2090&amp;reportType=LINK_REPORT_LIST'],['isMultiWindow',false],['menuFocusId','report2090']],[['html','&lt;a style="margin:8px;" id="report2021" href="javascript:void(0);" onfocus="SetFocusIn();" onblur="SetBlurOut();" &gt;Upcoming Special Events&lt;/a&gt;'],['url','/CitizenAccess/Report/ReportParameter.aspx?module=Licenses&amp;reportID=2021&amp;reportType=LINK_REPORT_LIST'],['isMultiWindow',false],['menuFocusId','report2021']]],false,'Reports (2)');
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCallbackBehavior, {"callbackControlID":"ctl00_PlaceHolderMain_addForDetailPage_txtName","callbackFailFunction":"doErrorCallbackFun","highlightCssClass":"HighlightCssClass","id":"ctl00_PlaceHolderMain_addForDetailPage_ctl01","validationByHiddenTextBox":false}, null, null, $get("ctl00_PlaceHolderMain_addForDetailPage_txtName_baseReq"));
+});
+
+document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCallbackBehavior, {"callbackControlID":"ctl00_PlaceHolderMain_addForDetailPage_txtDesc","callbackFailFunction":"doErrorCallbackFun","highlightCssClass":"HighlightCssClass","id":"ctl00_PlaceHolderMain_addForDetailPage_ctl02","validationByHiddenTextBox":false}, null, null, $get("ctl00_PlaceHolderMain_addForDetailPage_txtDesc_length_vad"));
+});
+//]]&gt;
+</script>
+</form>
+    <noscript>Your browser does not support JavaScript.</noscript>
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1107" height="696"></canvas></html>
