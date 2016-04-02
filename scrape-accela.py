@@ -1,4 +1,20 @@
 #!/usr/bin/python
+"""
+This is a brute force scraping utility for the Indianapolis Accella data portal.
+It scrapes by iterating record numbers in the URL, rather than searching and then saving each
+resulting record. As such, it doesn't need Javascript and all the overhead that comes with it.
+This used to work much better, but some point in 2015 Accella switched from a 7 digit [0-9] record ID
+to [0-9A-Z]. It isn't clear to me really how this numbering system works since there are big gaps between
+valid records, so you end up having to hit 100s of URLS to find a few scattered valid records. The whole thing
+takes a ton of time to run, so in the end it might be faster to just use the Javascript Selenium scraper, which
+is why I wrote it.
+
+- Chris H., chris.hartley@anymouse.org
+
+(C)opyright 2013-2016 Chris Hartley, GPL License v3
+
+"""
+
 import urllib2
 import cookielib
 from lxml import etree

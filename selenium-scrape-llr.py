@@ -1,3 +1,11 @@
+"""
+This module scrapes Landlord Registration records from Accella using Selenium.
+Accella uses so much Javascript that it is impossible to scrape without it. The
+alternative method, which I have used before, is to brute force the whole URL address space,
+which is 36^7 characters. Not ideal. 
+
+"""
+
 import xlrd
 import requests
 from selenium import webdriver
@@ -44,11 +52,11 @@ while True:
 
 	# enter record number and click submit
 	finally:
-		driver.find_element_by_id('ctl00_PlaceHolderMain_generalSearchForm_txtGSPermitNumber').clear()	
+		driver.find_element_by_id('ctl00_PlaceHolderMain_generalSearchForm_txtGSPermitNumber').clear()
 		driver.find_element_by_id('ctl00_PlaceHolderMain_generalSearchForm_txtGSPermitNumber').send_keys(record)
 		driver.find_element_by_id("ctl00_PlaceHolderMain_btnNewSearch").click()
 
-	# wait for record result page to load 
+	# wait for record result page to load
 	try:
 		element = WebDriverWait(driver, 20).until(
 			EC.presence_of_element_located((By.ID, "ctl00_PlaceHolderMain_lblPermitNumber"))
@@ -65,6 +73,6 @@ while True:
 		f.write(driver.page_source.encode('ascii','ignore'))
 		f.close()
 		extract_landlord_registration(driver.page_source)
-		
+
 	row = row+1
-driver.close()	
+driver.close()
